@@ -139,7 +139,18 @@ footer a:hover{
     background-color: rgb(148, 124, 96);
     color: white;
     border-radius: 10px;
+    font-weight: bold;
+    
 }
+
+.adop_dessous_carte{
+    background-color: rgb(148, 124, 96);
+    height:40px;
+    border-radius: 0px 0px 10px 10px;
+    
+}
+
+
 
 .bloc-aside1{
     background-color: #5E503F;

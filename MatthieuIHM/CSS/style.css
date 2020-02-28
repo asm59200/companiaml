@@ -1,0 +1,406 @@
+body{
+    background-color: #EAE0D5;
+    cursor: url(../img/Pointeurpatte.png),pointer;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+/*/////////////////////////titre//////////////////////////*/
+.bg-color-white{
+    background-image: url(../img/Fondh3.png);
+    height: 180px;
+}
+
+
+
+/*/////////////////////////navbar//////////////////////////*/
+.bg-nv{
+    background-color: #5E503F;
+    color: white;
+}
+
+.nav-item a:hover{
+    background-color: rgb(148, 124, 96);
+}
+
+.nav-item a{
+    color:white;
+}
+
+
+/*.navbar .dropdown:hover>.dropdown-menu {
+    display: block;
+  }*/
+
+.navbar{
+    height: 48px;
+}
+
+
+
+.bdtop{
+    border-bottom: solid;
+}
+
+.foot{
+    background-color: #5E503F; 
+    color:white;
+}
+
+.btn{
+    background-color:#d5af64;
+    color:white;
+}
+
+.carousel-inner img {
+    width: 75%;
+    height: 75%;
+    margin-left: 13%;
+}
+
+.barferm{
+    height: 48px;
+    background-color:#5E503F ;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar-brand:hover{
+    color: white;
+}
+
+.ptpol{
+    font-size: 12px;
+}
+
+.navbar-toggler-icon{
+    
+    border: none;
+}
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background-image:url(../img/patteblanche.png)  ;
+    background-size: 100% 100%;
+  }
+
+
+/*/////////////////////////footer//////////////////////////*/
+footer a{
+    color:white;
+}
+
+footer a:hover{
+    color:white
+}
+
+/*/////////////////////////petsitter adoption perdu trouve//////////////////////////*/
+
+
+.btn-admin{
+    background-color:#5E503F ;
+}
+
+.aff-article{
+    background-color: white;
+    border-radius: 15px;
+}
+
+.img-article{
+    max-width: 95%;
+}
+
+.par-article{
+    background-color:rgb(148, 124, 96) ;
+    color: white;
+    border-radius: 10px;
+}
+
+
+
+.aside-adopt img{
+    max-width: 100%;
+}
+
+.btn-100{
+    width: 100%;
+}
+
+.bloc-aside{
+    background-color: rgb(148, 124, 96);
+    color: white;
+    border-radius: 10px;
+}
+
+.bloc-aside1{
+    background-color: #5E503F;
+    color: white;
+    border-radius: 10px;
+}
+
+
+/*/////////////////////////fiche article//////////////////////////*/
+
+.Background-Color-Fiche-Blanc{
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.Background-Color-Fiche-Image{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.Background-Color-Fiche-Texte{
+    background-color: #C6AC8F;
+    color: white;
+    font-size: 20px;
+}
+
+.Bouton-Admin-1{
+    margin: 20px;
+    color: white;
+    background-color: #D5AF64;
+}
+
+.Bouton-Admin-2{
+    margin: 20px;
+    color: white;
+    background-color: #5E503F;
+}
+
+.Background-Color-Fiche-Image img{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+}
+
+.Image-Fiche{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+}
+
+.Fiche{
+    background-color: #EAE0D5;
+    padding: 50px 0px;
+}
+
+
+/* Refuge */
+.Refuge-1{
+    margin-bottom: 20px;
+}
+
+.Background-Color-Refuge-Texte{
+    background-color: #C6AC8F;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.a-Refuge{
+    color: white;
+    align-items: center;
+}
+
+/* Titre*/
+.Titre{
+    padding: 20px;
+    text-align: center;
+}
+
+.Background-Form{
+    padding: 50px 0px;
+    background-color: #EAE0D5;
+}
+
+.form-group{
+    padding-bottom: 10px;
+}
+
+
+/*  Forum-------------------------------------------------------------------------------------------- */
+.titrealim{
+    font-size: 40px;
+    color: white;
+    background-color: #C6AC8F;
+    border-radius: 50px;
+}
+
+@media (max-width:991px){
+    .titrealim{
+        font-size: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .butmosp button{
+        width:  75px;
+        
+    }
+    .butmosp button a{
+        width:10px;
+        font-size:12px;
+    }
+}
+
+.bordernomdate{
+    border-right: solid 2px #5E503F;
+}
+
+.bnttopic{
+    margin-left: 0px;
+    border-left: 0px;
+}
+
+.borderradiusl{
+    border-radius: 50px 0px 0px 50px;
+}
+
+.borderradiusr{
+    border-radius: 0px 50px 50px 0px;
+}
+
+.backgroundforum button{
+    background-color: #C6AC8F;
+    border-radius: 50px;
+    border: solid  #5E503F 2px;    
+}
+
+.bordertopic{
+    border: solid 2px #5E503F;
+    
+}
+
+.bordertopicl{
+    background-color:#d5af64;
+    border: solid 2px #5E503F;
+    border-left: 0px;
+}
+
+
+.noborderright{
+    border-right: 0px;
+}
+.barreretopicforum{
+    background-color:#d5af64;
+}
+
+.barrerechercheforum{
+    background-color: #C6AC8F;
+    border-radius: 50px;
+    color: white;
+}
+
+.backgroundforum{
+    background-color: white;
+    border-radius: 50px;
+}
+/* Fin  Forum --------------------------------------------------------------------------------------*/
+
+.titretopic{
+    font-size: 40px;
+    color: white;
+    background-color: #5E503F;
+    border-radius: 50px;
+}
+
+@media (max-width:991px){
+    .titretopic{
+        font-size: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+.bordercommentaire{
+    border-radius: 10px;
+    border: solid 1px #5E503F;
+    background-color: #C6AC8F;
+    color:white;
+}
+
+.borderprofilnomtopic{
+    border-radius: 10px;
+    border: solid 1px #5E503F;
+    background-color: #d5af64;
+    color:blac;
+    height:100px;
+    padding-top: 35px;
+    font-size: 20px;
+}
+
+.fondcommentaire{
+    border-radius: 10px;
+    border: solid 1px #5E503F;
+    background-color: white;
+    color:black;
+}
+
+.bntsuppTopic button,.bntvalidercom button{
+    background-color: #5E503F;
+}
+
+.navigtionpage{
+    font-size: 20px;
+    
+}
+
+/* Mes annonces -------------------------------------------------------------------------------------------------------------*/
+
+.backgrdann{
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+
+.bntmesannonces button{
+    border: solid 1px #5E503F;
+    
+
+}
+
+@media (max-width:991px){
+    .bntmesannonces{
+        margin-left: 0px;
+        margin-bottom: 5px;
+        
+    }
+}
+
+.nomdannonce{
+    padding-top: 5px;
+    color: white;
+    background-color:#d5af64 ;
+    border: solid 1px #5E503F;
+}
+
+.titresection{
+    background-color: #d5af64;
+    border-radius: 20px 20px 0px 0px;
+    color: white;
+    border-bottom: solid 1px #5E503F;
+    font-size: 30px;
+    
+}
+
+.bordercadreann{
+    border: solid 1px #5E503F;
+    border-radius: 20px 20px 0px 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    background-color: #C6AC8F;
+}

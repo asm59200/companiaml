@@ -1,0 +1,35 @@
+
+.btn-admin{
+    background-color:#5E503F ;
+}
+
+.aff-article{
+    background-color: white;
+    border-radius: 15px;
+}
+
+.img-article{
+    max-width: 95%;
+}
+
+.par-article{
+    background-color:rgb(148, 124, 96) ;
+    color: white;
+    border-radius: 10px;
+}
+
+
+
+.aside-adopt img{
+    max-width: 100%;
+}
+
+.btn-100{
+    width: 100%;
+}
+
+.bloc-aside{
+    background-color: rgb(148, 124, 96);
+    color: white;
+    border-radius: 10px;
+}

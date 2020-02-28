@@ -1,0 +1,173 @@
+/*  Forum-------------------------------------------------------------------------------------------- */
+.titrealim{
+    font-size: 40px;
+    color: white;
+    background-color: #C6AC8F;
+    border-radius: 50px;
+}
+
+@media (max-width:991px){
+    .titrealim{
+        font-size: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .butmosp button{
+        width:  75px;
+        
+    }
+    .butmosp button a{
+        width:10px;
+        font-size:12px;
+    }
+}
+
+.bordernomdate{
+    border-right: solid 2px #5E503F;
+}
+
+.bnttopic{
+    margin-left: 0px;
+    border-left: 0px;
+}
+
+.borderradiusl{
+    border-radius: 50px 0px 0px 50px;
+}
+
+.borderradiusr{
+    border-radius: 0px 50px 50px 0px;
+}
+
+.backgroundforum button{
+    background-color: #C6AC8F;
+    border-radius: 50px;
+    border: solid  #5E503F 2px;    
+}
+
+.bordertopic{
+    border: solid 2px #5E503F;
+    
+}
+
+.bordertopicl{
+    background-color:#d5af64;
+    border: solid 2px #5E503F;
+    border-left: 0px;
+}
+
+
+.noborderright{
+    border-right: 0px;
+}
+.barreretopicforum{
+    background-color:#d5af64;
+}
+
+.barrerechercheforum{
+    background-color: #C6AC8F;
+    border-radius: 50px;
+    color: white;
+}
+
+.backgroundforum{
+    background-color: white;
+    border-radius: 50px;
+}
+/* Fin  Forum --------------------------------------------------------------------------------------*/
+
+.titretopic{
+    font-size: 40px;
+    color: white;
+    background-color: #5E503F;
+    border-radius: 50px;
+}
+
+@media (max-width:991px){
+    .titretopic{
+        font-size: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+.bordercommentaire{
+    border-radius: 10px;
+    border: solid 1px #5E503F;
+    background-color: #C6AC8F;
+    color:white;
+}
+
+.borderprofilnomtopic{
+    border-radius: 10px;
+    border: solid 1px #5E503F;
+    background-color: #d5af64;
+    color:blac;
+    height:100px;
+    padding-top: 35px;
+    font-size: 20px;
+}
+
+.fondcommentaire{
+    border-radius: 10px;
+    border: solid 1px #5E503F;
+    background-color: white;
+    color:black;
+}
+
+.bntsuppTopic button,.bntvalidercom button{
+    background-color: #5E503F;
+}
+
+.navigtionpage{
+    font-size: 20px;
+    
+}
+
+/* Mes annonces -------------------------------------------------------------------------------------------------------------*/
+
+.backgrdann{
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+
+.bntmesannonces button{
+    border: solid 1px #5E503F;
+    
+
+}
+
+@media (max-width:991px){
+    .bntmesannonces{
+        margin-left: 0px;
+        margin-bottom: 5px;
+        
+    }
+}
+
+.nomdannonce{
+    padding-top: 5px;
+    color: white;
+    background-color:#d5af64 ;
+    border: solid 1px #5E503F;
+}
+
+.titresection{
+    background-color: #d5af64;
+    border-radius: 20px 20px 0px 0px;
+    color: white;
+    border-bottom: solid 1px #5E503F;
+    font-size: 30px;
+    
+}
+
+.bordercadreann{
+    border: solid 1px #5E503F;
+    border-radius: 20px 20px 0px 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    background-color: #C6AC8F;
+}

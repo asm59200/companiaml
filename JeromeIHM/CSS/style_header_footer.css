@@ -1,0 +1,99 @@
+body{
+    background-color: #EAE0D5;
+    cursor: url(../img/Pointeurpatte.png),pointer;
+}
+
+
+/*/////////////////////////titre//////////////////////////*/
+.bg-color-white{
+    background-image: url(../img/Fondh3.png);
+    height: 180px;
+}
+
+
+
+/*/////////////////////////navbar//////////////////////////*/
+.bg-nv{
+    background-color: #5E503F;
+    color: white;
+}
+
+.nav-item a:hover{
+    background-color: rgb(148, 124, 96);
+}
+
+.nav-item a{
+    color:white;
+}
+
+
+/*.navbar .dropdown:hover>.dropdown-menu {
+    display: block;
+  }*/
+
+.navbar{
+    height: 48px;
+}
+
+
+
+.bdtop{
+    border-bottom: solid;
+}
+
+.foot{
+    background-color: #5E503F; 
+    color:white;
+}
+
+.btn{
+    background-color:#d5af64;
+    color:white;
+}
+
+.carousel-inner img {
+    width: 75%;
+    height: 75%;
+    margin-left: 13%;
+}
+
+.barferm{
+    height: 48px;
+    background-color:#5E503F ;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar-brand:hover{
+    color: white;
+}
+
+.ptpol{
+    font-size: 12px;
+}
+
+.navbar-toggler-icon{
+    
+    border: none;
+}
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background-image:url(../img/patteblanche.png)  ;
+    background-size: 100% 100%;
+  }
+
+
+
+footer a{
+    color:white;
+}
+
+footer a:hover{
+    color:white
+}

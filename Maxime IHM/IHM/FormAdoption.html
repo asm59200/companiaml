@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+            <title>Formulaire d'Adoption</title>
+            <link rel="stylesheet" href="../css/bootstrap.css"/>
+            <link rel="stylesheet" href="../css/Styles.css"/>
+
+</head>
+            
+  <body>
+    <!-- Debut Body Formulaire Adoption-->
+    <div class="Background-Form">
+        <div class="container-fluid">
+            <!-- Titre Form Adoption-->
+            <div>
+              <h1 class="Titre">Adoption</h1>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <!-- Formulaire d'Adoption-->
+                    <fom>
+                        <div class="form-group row">
+                            <!--Nom de l'animal-->
+                            <label for="FormAdoptionNomAnimal" class="col-sm-4 col-form-label">Nom de l'Animal :</label>
+                            <div class="col-sm-6 col-8">
+                              <input type="text" class="form-control" id="FormAdoptionNomAnimal">
+                            </div>
+                        </div>
+                        <!-- Espece-->
+                        <div class="form-group row">
+                            <label for="FormAdoptionEspeceAnimal" class="col-sm-4 col-form-label">Espéce :</label>
+                            <div class="col-sm-3 col-5">
+                                <select class="form-control" id="FormAdoptionEspeceAnimal">
+                                    <option>Chien</option>
+                                    <option>Chat</option>
+                                    <option>Lapin</option>
+                                    <option>Oiseaux</option>
+                                    <option>Autre</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Race-->
+                        <div class="form-group row">
+                            <label for="FormAdoptionRaceAnimal" class="col-sm-4 col-form-label">Race :</label>
+                            <div class="col-sm-3 col-5">
+                                <select class="form-control" id="FormAdoptionRaceAnimal">
+                                    <option>Autre</option>
+                                </select>
+                            </div>
+                        </div>  
+                        <!-- Dowload Photo-->
+                        <div class="form-group row">
+                            <label for="FormAdoptionDowloadPhoto" class="col-sm-4 col-form-label">Télécharger une Photo :</label>
+                            <div class="col-sm-8">
+                                <input type="file" class="form-control-file" id="FormAdoptionDowloadPhoto">
+                            </div>
+                        </div>
+                        <!--  Sexe -->
+                        <div class="form-group row">
+                            <label for="FormAdoptionSexeAnimal" class="col-sm-4 col-form-label">Sexe</label>
+                            <div class="col-sm-8">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="Male" id="inlineRadio1" value="option1">
+                                    <label class="form-check-label" for="Male">Male</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="Femelle" id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="Femelle">Femelle</label>
+                                  </div>
+                            </div>
+                        </div>
+                        <!-- Age Animal-->
+                        <div class="form-group row">
+                            <label for="FormAdoptionAgeAnimal" class="col-sm-4 col-form-label">Age :</label>
+                            <div class="col-sm-2 col-5">
+                              <input type="text" class="form-control" id="FormAdoptionAgeAnimal">
+                            </div>
+                        </div>
+                        <!--Refuge-->
+                        <div class="form-group row">
+                            <label for="FormAdoptionRefugeAnimal" class="col-sm-4 col-form-label">Refuge :</label>
+                            <div class="col-sm-6 col-8">
+                              <input type="text" class="form-control" id="FormAdoptionRefugeAnimal">
+                            </div>
+                        </div>
+                        <!-- Description-->
+                        <div class="form-group row">
+                            <label for="FormAdoptionDescription" class="col-sm-4 col-form-label">Description</label>
+                            <div class="col-sm-6 col-10">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                            </div>
+                        </div>
+                        <!-- Bouton d'envoi-->
+                        <div class="row">
+                            <div class="col-sm-2 offset-4">
+                                <button type="button" class="btn">Valider</button>
+                            </div>
+                        </div>
+                    </fom>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Body Formulaire d'Adoption-->
+</body>
+</html>

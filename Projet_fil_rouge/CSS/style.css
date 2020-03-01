@@ -395,12 +395,12 @@ footer a:hover{
 .nomdannonce{
     padding-top: 5px;
     color: white;
-    background-color:#d5af64 ;
+    background-color:#5E503F;
     border: solid 1px #5E503F;
 }
 
 .titresection{
-    background-color: #d5af64;
+    background-color: #5E503F;
     border-radius: 20px 20px 0px 0px;
     color: white;
     border-bottom: solid 1px #5E503F;
@@ -415,3 +415,4 @@ footer a:hover{
     padding-left: 0px;
     background-color: #C6AC8F;
 }
+

@@ -2,7 +2,7 @@
 	<html>
 		<head>
 			<meta charset=``utf-8`` />
-            <title>Header Footer</title>
+            <title>Forum Topic</title>
             <link rel="stylesheet" href="../css/bootstrap.css"/>
             <link rel="stylesheet" href="../css/style.css"/>
             
@@ -31,7 +31,7 @@
         <div class="container text-center backgroundforum">
           <div class="row mt-4 pt-3">
             <div class="col-3"></div>
-            <div class="col-6"><button class="btn créetopic" type="submit"><a>Crée un Topic</a></button></div>
+            <div class="col-6"><button class="btn créetopic" type="submit"><a>Interroger la communauté</a></button></div>
             <div class="col-3 "></div>
           </div>
 
@@ -40,10 +40,14 @@
             <div class="offset-1"></div>
 
 <!-- Bouton recherche -->
-            <div class="col-10 barrerechercheforum pt-2 pb-2 mb-3"><label for="site-search">Recherche sur le forum:</label>
-              <input type="search" placeholder=" Votre recherche..." id="site-search" name="q"
-                     aria-label="Search through site content">
-              <button>Rechercher</button></div>
+            <div class="col-10 barrerechercheforum pt-2 pb-2 mb-3">
+              <label for="site-search">Recherche sur le forum:</label>
+              <div class="row">
+                <div class="col-2"></div>
+              <input style="margin-bottom: 10px; text-align: center;" class="col-8 form-control" type="text" placeholder="Que cherche-vous ?" aria-label="Search">
+              </div>
+              <button class="btn">Rechercher</button>
+            </div>
             <div class="offset-1"></div>
           </div>
 

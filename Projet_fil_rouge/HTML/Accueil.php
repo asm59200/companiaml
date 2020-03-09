@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset=``utf-8`` />
+            <title>Accueil</title>
+            <link rel="stylesheet" href="../css/bootstrap.css"/>
+            <link rel="stylesheet" href="../css/style.css"/>
+            
+            <link rel="icon" href="../img/patteblanche.png">
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+       <!-- header       -->
+      <!-- Titre et logo-->
+      <div class="container-fluid  ">
+        <div class="row bg-color-white justify-content-center ">
+          <div class="col-lg-6 col-md-12 text-center">
+              <img src="../img/Logov3.svg" alt="" class=" img-fluid w-25 p-3 ">
+          </div>
+          <div class="col-lg-12 col-sm-10 text-center align-self-center">
+            <h4>Ne me louez pas, adoptez moi!</h4>
+          </div>
+        </div>  
+      </div>
+      <!-- Navbar-->
+      <div class="container-fluid sticky-top" >       
+        <div class="row justify-content-center " >                
+          <nav class="navbar navbar-expand-lg  bg-nv  container-fluid gg  ">
+            <a class="offset-xl-2 offset-md-1 navbar-brand  " href="index.html">Comp'Animal</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsive">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse bg-nv" id="responsive">
+              <ul class="navbar-nav ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="index_copy.html">Accueil</a>
+                </li>
+                <li class="nav-item dropdown" > 
+                  <a class="nav-link dropdown-toggle " data-toggle="dropdown"  href="#" role="button" aria-haspopup="true" aria-expanded="false">Adoption</a>
+                    <div class="bg-nv dropdown-menu" >
+                        <a class="bg-nv dropdown-item" href="#">Adoption</a>
+                        <a class="bg-nv dropdown-item" href="#">Refuges</a>                          
+                    </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Animaux perdus et trouvés</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Pet'Sitter</a>
+                </li>
+                <li class="nav-item dropdown" > 
+                  <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Forum</a>
+                    <div class="bg-nv dropdown-menu p-1 ">
+                        <a class="bg-nv dropdown-item" href="#">Santé</a>
+                        <a class="bg-nv dropdown-item" href="#">Alimentation</a>
+                        <a class="bg-nv dropdown-item" href="#">Divertissement</a> 
+                        <a class="bg-nv dropdown-item" href="#">Autre</a>                           
+                    </div>
+                </li>
+              </ul>
+              <ul class="offset-xl-1 navbar-nav">
+                <li class="nav-item dropdown" > 
+                  <a class="nav-link dropdown-toggle  " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Se Connecter</a>
+                    <div class="bg-nv p-3 text-center dropdown-menu">
+                      <form  method="post" action="accueil.php">            
+                        <label for="idpersonne">Identifiant</label>
+                        <input id="idpersonne" size="30" maxlength="15" type="email" 
+                              name="ident" class="form-control "/>
+                        <label for="idpersonne " class=" mt-2">Mot de passe</label>
+                        <input id="idpersonne" size="30" maxlength="15" type="password" 
+                                name="ident" class="form-control"/> 
+                                
+                        <button class="btn mt-2  " type="submit">Connecter</button>
+                          
+                      </form>
+                      <form method="post" action="accueil.php" >
+                        <label class="mt-3 ptpol" for="idpersonne">Mot de passe oublié ?</label>
+                        <input id="idpersonne" size="30" maxlength="15" type="email" 
+                              placeholder="Votre email" name="ident" class="form-control"/>
+                        <button class="btn mt-2 " type="submit">Envoyer</button>
+                      </form>                           
+                    </div>
+                </li>
+                <li class="nav-item " > 
+                  <a class="nav-link d  " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">S'inscrire</a>
+                    
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div> 
+      <!-- Caroussel-->
+        <div class="container-fluid foot">
+          <div id="demo" class="carousel slide carousel-fade" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+              <li data-target="#demo" data-slide-to="2"></li>
+              <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+          
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../img/carousel_1.jpg" alt="Los Angeles">
+              </div>
+              <div class="carousel-item">
+                <img src="../img/carousel_2.jpg" alt="Chicago">
+              </div>
+              <div class="carousel-item">
+                <img src="../img/carousel_3.jpg" alt="New York">
+              </div>
+              <div class="carousel-item">
+                <img src="../img/carousel_4.png" alt="New York">
+              </div>
+            </div>
+          
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          
+          </div>
+          <div class="barferm">
+
+          </div>
+        </div>
+        
+        <!-- fin header       -->
+      <!-- debut page       -->
+      
+      <div class="container text-center">
+        <div class="row mt-3">     
+         
+         <!-- affichage des articles       -->
+          <div class="col-lg-8 aff-article m-sm-4">
+            <div class="row justify-content-center">
+              <div class="col-lg-6 ">
+                <button class="btn btn-admin mt-3" type="submit"><a>Ajouter un article</a></button>
+              </div>
+            </div>
+            <div class="row justify-content-center mt-3 mb-3">
+              <div class="col-lg-6 mt-3">
+                <h4>Titre de l'article</h4>
+              </div>
+              <div class="col-lg-12">
+                <img class="img-article" src="../img/photo_top_1.jpg" alt="">
+              </div>
+              <div class="col-lg-7 text-left par-article mt-2 mb-2 m-sm-4">
+                <p>Aidez-nous à mener à bien nos missions ! 
+                  La SPA vit principalement de la générosité
+                   du public et compte donc sur votre soutien
+                    pour secourir, défendre et protéger les animaux.</p>
+              </div>
+              <div class="col-lg-4 align-self-center">
+                <button class="btn  mt-2" type="submit"><a>Consulter l'article</a></button>
+                <button class="btn btn-admin mt-2" type="submit"><a>Modifier</a></button>
+                <button class="btn btn-admin mt-2" type="submit"><a>Supprimer</a></button>
+              </div>
+            </div>
+            <div class="row justify-content-center mt-3 mb-3">
+              <div class="col-lg-6 mt-5 ">
+                <h4>Titre de l'article</h4>
+              </div>
+              <div class="col-lg-12">
+                <img class="img-article" src="../img/photo_top_1.jpg" alt="">
+              </div>
+              <div class="col-lg-7 text-left par-article mt-2 mb-2 m-sm-4">
+                <p>Aidez-nous à mener à bien nos missions ! 
+                  La SPA vit principalement de la générosité
+                   du public et compte donc sur votre soutien
+                    pour secourir, défendre et protéger les animaux.</p>
+              </div>
+              <div class="col-lg-4 align-self-center">
+                <button class="btn  mt-2" type="submit"><a>Consulter l'article</a></button>
+                <button class="btn btn-admin mt-2" type="submit"><a>Modifier</a></button>
+                <button class="btn btn-admin mt-2" type="submit"><a>Supprimer</a></button>
+              </div>
+            </div>
+            <div class="row justify-content-center mt-3 mb-3">
+              <div class="col-lg-6 mt-5">
+                <h4>Titre de l'article</h4>
+              </div>
+              <div class="col-lg-12">
+                <img class="img-article" src="../img/photo_top_1.jpg" alt="">
+              </div>
+              <div class="col-lg-7 text-left par-article mt-2 mb-2 m-sm-4">
+                <p>Aidez-nous à mener à bien nos missions ! 
+                  La SPA vit principalement de la générosité
+                   du public et compte donc sur votre soutien
+                    pour secourir, défendre et protéger les animaux.</p>
+              </div>
+              <div class="col-lg-4 align-self-center">
+                <button class="btn  mt-2" type="submit"><a>Consulter l'article</a></button>
+                <button class="btn btn-admin mt-2" type="submit"><a>Modifier</a></button>
+                <button class="btn btn-admin mt-2" type="submit"><a>Supprimer</a></button>
+              </div>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          
+           <!-- aside       -->
+          <div class="col-lg-3 aside-adopt ml-lg-3 mt-4">
+            <div class="row bloc-aside justify-content-center ">
+              <h5 class="pt-2">Medor</h5>
+              <img class="img-aside" src="../img/chien_adopt.jpg" alt="">
+              <button class="btn btn-100 btn-admin " type="submit"><a><h5>Adopter</h5></a></button>
+            </div>
+            <div class="row bloc-aside justify-content-center mt-5">
+              <h5 class="pt-2">Caramel</h5>
+              <img class="img-aside" src="../img/chat_perdu.jpg" alt="">
+              <button class="btn btn-100 btn-admin " type="submit"><a><h5>Perdu</h5></a></button>
+            </div>
+            <div class="row bloc-aside justify-content-center mt-5">
+              <h5 class="pt-2">Panpan</h5>
+              <img class="img-aside" src="../img/lapin_trouve.jpg" alt="">
+              <button class="btn btn-100 btn-admin " type="submit"><a><h5>Trouvé</h5></a></button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+<!-- footer     -->
+      <footer class="  font-small mt-3 foot   " >
+        
+        <div class="container  text-center text-md-left ">
+          <div class="row justify-content-center ">
+            <!-- barre haut footer     -->
+            <div class="col-lg-4 col-sm-8 bdtop">
+              <br>
+            </div>
+          </div>
+          
+          <div class="row text-center  ">
+            <!-- partie gauche footer  -->
+            
+            <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 ">
+
+              
+              <h5 class="font-weight-bold text-uppercase mb-4"> Newsletter</h5>
+              <form method="post" action="accueil.php" >
+                <label class="mt-1" for="idpersonne">Adresse mail</label>
+                <input id="idpersonne" size="20" maxlength="15" type="email" 
+                      placeholder="Entrez votre email" name="ident" class="form-control"/>
+                <button class="btn mt-4 ml-n2 " type="submit">Je m'inscris</button>
+              </form>
+               <a class="mt-5 ml-1 nouscont" href="nous_contacter.html"><h6>Nous contacter</h6></a>
+            </div>
+           
+              <!-- partie centrale footer -->
+            
+            <div class="col-md-4 col-lg-5  mx-auto my-md-4 my-0 mt-4 mb-1 ">
+              <br>
+              <ul class="list-unstyled">
+                <li>
+                    <a href="#!">Accueil</a>
+                </li>
+                <li>    
+                    <a href="#!">Adopter</a>
+                </li>
+                <li>  
+                    <a href="#!">Refuges</a>
+                </li>
+                <li>  
+                    <a href="#!">Perdus/Trouvés</a>
+                </li>
+                <li>  
+                    <a href="#!">Pet'Sitter</a>
+                </li>
+                <li>  
+                    <a href="#!">Forum</a>
+                </li>
+              </ul>
+            </div>
+            
+
+            
+            <!-- partie droite footer -->
+            
+            <div class="col-md-3 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1">
+              <br>
+              <i class="fas fa-envelope mr-3">
+                <a href="https://www.lpa-nf.fr/faire-un-don/">
+                  <img src="../img/LogoV3png.png" alt="" class=" img-fluid w-75 ml-4  ">
+                </a>
+              </i>
+              <button class="btn mt-5 ml-3 " type="submit">Je fais un DON</button>
+            </div>
+          </div>  
+            
+            <!-- barre bas footer -->
+            <div class="row justify-content-center ">
+              <div class="col-lg-4 col-sm-8 bdtop">
+                <br>
+              </div>
+            </div>
+        
+        <div class="col-12 footer-copyright text-center py-3"><a href="">CGU</a> © 2020 Copyright:
+          <a href=""> companimal.fr</a> 
+        </div>
+        
+
+      </footer>
+     
+		</body>
+	</html>

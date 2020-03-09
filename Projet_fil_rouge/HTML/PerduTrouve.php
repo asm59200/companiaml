@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset=``utf-8`` />
+            <title>Animal perdu trouvé</title>
+            <link rel="stylesheet" href="../css/bootstrap.css"/>
+            <link rel="stylesheet" href="../css/style.css"/>
+            
+            <link rel="icon" href="../img/patteblanche.png">
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+      <!-- header       -->
+     
+      <!-- fin header       -->
+      <!-- debut page       -->
+      <div class="container-fluid ">
+        <div class="row justify-content-center">
+          
+
+            <!-- bloc recherche top quand sm-->
+            <div class="col-sm-6 col-md-4  aside-adopt  mt-4  d-xs-block d-md-block d-lg-none d-xl-none ">
+              <div class="row bloc-aside justify-content-center ">
+                <form class="was-validated">
+                  <div class="form-group row mt-2 justify-content-center ">
+                      <label for="inputname" class="col-sm-3 col-form-label">Espece</label>
+                      <input type="text" class="col-sm-10 form-control is-valid" id="inputname" required>
+                  </div>
+                  <div class="form-group row  justify-content-center ">
+                    <label for="inputname" class="col-sm-3 col-form-label">Race</label>
+                    <input type="text" class="col-sm-10 form-control is-valid" id="inputname" required>
+                  </div>
+                  <div class="form-group row mt-2 justify-content-center ">
+                    <label  class="col-sm-6 col-form-label text-center">Sex</label>
+                  </div>
+                  <div class="row mb-3">
+                  <div class="form-check col-5 text-left">
+                    <label class="form-check-label col-10" for="exampleRadios1">
+                      Mâle
+                    </label>
+                    <input class="form-check-input col-2" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  </div>
+                 
+                  <div class="form-check col-7 ">
+                    <label class="form-check-label col-11" for="exampleRadios1">
+                      Femelle
+                    </label>
+                    <input class="form-check-input col-1" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                  </div>
+                </div>
+                <div class="form-group row mt-2 justify-content-center ">
+                  <label  class="col-sm-6 col-form-label  text-center">Perdu / Trouvé</label>
+                </div>
+                <div class="row mb-3">
+                <div class="form-check col-5 text-left">
+                  <label class="form-check-label col-10" for="exampleRadios1">
+                    Perdu
+                  </label>
+                  <input class="form-check-input col-2" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                </div>
+               
+                <div class="form-check col-7 ">
+                  <label class="form-check-label col-11" for="exampleRadios1">
+                    Trouvé
+                  </label>
+                  <input class="form-check-input col-1" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                </div>
+              </div>
+                 
+                </form>
+              </div>
+            </div>
+          
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8 mb-3">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 text-center ">
+                <button class="btn btn-admin mt-3" type="submit"><a>Créer une annonce</a></button>
+              </div>
+            </div>
+            <div class="row aff-article justify-content-center mt-3">
+              <div class="col-lg-3 col-md-7 col-sm-8  aside-adopt">
+                <div class="row bloc-aside justify-content-center mt-5">
+                  <h5 class="pt-2">Panpan</h5>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"><h5 class="adop_dessous_carte pt-2 text-center">Perdu</h5></div> 
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt">
+                <div class="row bloc-aside justify-content-center mt-5">
+                  <h5 class="pt-2">Panpan</h5>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"><h5 class="adop_dessous_carte pt-2 text-center">Perdu</h5></div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt mb-5">
+                <div class="row bloc-aside justify-content-center mt-5">
+                  <h5 class="pt-2">Panpan</h5>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"><h5 class="adop_dessous_carte pt-2 text-center">Trouvé</h5></div>
+                </div>
+              </div>
+            
+              <div class="col-lg-3 col-md-7 col-sm-8  aside-adopt">
+                <div class="row bloc-aside justify-content-center mt-5">
+                  <h5 class="pt-2">Panpan</h5>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"><h5 class="adop_dessous_carte pt-2 text-center">Trouvé</h5></div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt">
+                <div class="row bloc-aside justify-content-center mt-5">
+                  <h5 class="pt-2">Panpan</h5>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"><h5 class="adop_dessous_carte pt-2 text-center">Perdu</h5></div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt mb-5">
+                <div class="row bloc-aside justify-content-center mt-5">
+                  <h5 class="pt-2">Panpan</h5>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"><h5 class="adop_dessous_carte pt-2 text-center">Trouvé</h5></div>
+                </div>
+              </div>
+            
+              <div class="col-lg-3 col-md-7 col-sm-8 aside-adopt">
+                <div class="row bloc-aside justify-content-center mt-5">
+                  <h5 class="pt-2">Panpan</h5>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"><h5 class="adop_dessous_carte pt-2 text-center">Perdu</h5></div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt">
+                <div class="row bloc-aside justify-content-center mt-5">
+                  <h5 class="pt-2">Panpan</h5>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"><h5 class="adop_dessous_carte pt-2 text-center">Perdu</h5></div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt mb-5">
+                <div class="row bloc-aside justify-content-center mt-5">
+                  <h5 class="pt-2">Panpan</h5>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"><h5 class="adop_dessous_carte pt-2 text-center">Perdu</h5></div>
+                </div>
+              </div>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+           <!-- bloc recherche aside quand lg-->
+          <div class="col-lg-2 aside-adopt ml-lg-3 mt-4 d-none d-lg-block ">
+            <div class="row bloc-aside1 justify-content-center ">
+              <form class="was-validated">
+                <div class="form-group row mt-2 justify-content-center ">
+                    <label for="inputname" class="col-sm-3 col-form-label text-center">Espece</label>
+                    <input type="text" class="col-sm-10 form-control is-valid" id="inputname" required>
+                </div>
+                <div class="form-group row  justify-content-center ">
+                  <label for="inputname" class="col-sm-3 col-form-label">Race</label>
+                  <input type="text" class="col-sm-10 form-control is-valid" id="inputname" required>
+                </div>
+                <div class="form-group row mt-2 justify-content-center ">
+                  <label  class="col-6 col-form-label text-center">Sexe</label>
+                </div>
+                <div class="row mb-3">
+                  <div class="form-check col-12 text-left">
+                    <label class="form-check-label col-10" for="exampleRadios1">
+                      Mâle
+                    </label>
+                    <input class="form-check-input col-1 " type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  </div>
+                 
+                  <div class="form-check col-12 text-left">
+                    <label class="form-check-label col-10" for="exampleRadios1">
+                      Femelle
+                    </label>
+                    <input class="form-check-input col-1" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                  </div>
+                </div>
+                <div class="form-group row mt-2 justify-content-center ">
+                  <label  class="col-6 col-form-label  text-center">Perdu / Trouvé</label>
+                </div>
+                <div class="row mb-3">
+                  <div class="form-check col-12 text-left">
+                    <label class="form-check-label col-10" for="exampleRadios1">
+                      Perdu
+                    </label>
+                    <input class="form-check-input col-1 " type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                  </div>
+                 
+                  <div class="form-check col-12 text-left">
+                    <label class="form-check-label col-10" for="exampleRadios1">
+                      Trouvé
+                    </label>
+                    <input class="form-check-input col-1" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- debut page       -->
+      <!-- footer       -->
+     
+      </footer>
+     <!-- fin footer       -->
+		</body>
+	</html>

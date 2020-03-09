@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 05 mars 2020 à 15:43
+-- Généré le : lun. 09 mars 2020 à 15:04
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.2
 
@@ -44,14 +44,11 @@ CREATE TABLE `adoption` (
 CREATE TABLE `animal` (
   `id_animal` int(11) NOT NULL,
   `nom_animal` varchar(20) NOT NULL,
-  `naissance_animal` date DEFAULT NULL,
-  `espece_animal` varchar(20) NOT NULL,
-  `race_animal` varchar(20) DEFAULT NULL,
+  `naissance_animal` date NOT NULL,
   `sexe_animal` varchar(20) NOT NULL,
-  `photo_animal` blob NOT NULL,
+  `photo_animal` blob DEFAULT NULL,
   `description_animal` varchar(1) NOT NULL,
-  `id_perdu_trouve` int(11) NOT NULL,
-  `id_adoption` int(11) NOT NULL
+  `id_espece` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -64,7 +61,7 @@ CREATE TABLE `article` (
   `id_article` int(11) NOT NULL,
   `titre_article` varchar(50) NOT NULL,
   `image_article` blob NOT NULL,
-  `contenu_article` varchar(500) DEFAULT NULL,
+  `contenu_article` varchar(500) NOT NULL,
   `id_utilisateur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -84,24 +81,12 @@ CREATE TABLE `commentaire` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comporte`
---
-
-CREATE TABLE `comporte` (
-  `id_pet_sitter` int(11) NOT NULL,
-  `id_espece` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `compte_utilisateur`
 --
 
 CREATE TABLE `compte_utilisateur` (
-  `identifiant` varchar(20) NOT NULL,
-  `mot_de_passe` varchar(10) NOT NULL,
-  `id_utilisateur` int(11) NOT NULL
+  `email` varchar(20) NOT NULL,
+  `mot_de_passe` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -130,7 +115,7 @@ CREATE TABLE `perdu_trouve` (
   `date_perdu_trouve` date NOT NULL,
   `code_postale_perdu_trouve` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
-  `id_animal` int(11) NOT NULL
+  `id_espece` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -146,7 +131,8 @@ CREATE TABLE `pet_sitter` (
   `type_domicile_pet_sitter` tinyint(1) NOT NULL,
   `presentation_telephone` tinyint(1) NOT NULL,
   `description_pet_sitter` varchar(5) NOT NULL,
-  `id_utilisateur` int(11) NOT NULL
+  `id_utilisateur` int(11) NOT NULL,
+  `id_espece` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -216,9 +202,8 @@ CREATE TABLE `utilisateur` (
   `adresse_utilisateur` varchar(50) DEFAULT NULL,
   `code_postal_utilisateur` int(11) DEFAULT NULL,
   `ville_utilisateur` varchar(20) DEFAULT NULL,
-  `email_utilisateur` varchar(20) NOT NULL,
-  `telephone_utilisateur` int(11) NOT NULL,
-  `identifiant` varchar(20) NOT NULL,
+  `telephone_utilisateur` int(11) DEFAULT NULL,
+  `email` varchar(20) NOT NULL,
   `id_role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -240,8 +225,7 @@ ALTER TABLE `adoption`
 --
 ALTER TABLE `animal`
   ADD PRIMARY KEY (`id_animal`),
-  ADD UNIQUE KEY `Animal_perdu_trouve0_AK` (`id_perdu_trouve`),
-  ADD UNIQUE KEY `Animal_adoption1_AK` (`id_adoption`);
+  ADD KEY `Animal_espece1_FK` (`id_espece`);
 
 --
 -- Index pour la table `article`
@@ -258,18 +242,10 @@ ALTER TABLE `commentaire`
   ADD KEY `commentaire_topic0_FK` (`id_topic`);
 
 --
--- Index pour la table `comporte`
---
-ALTER TABLE `comporte`
-  ADD PRIMARY KEY (`id_pet_sitter`,`id_espece`),
-  ADD KEY `comporte_espece1_FK` (`id_espece`);
-
---
 -- Index pour la table `compte_utilisateur`
 --
 ALTER TABLE `compte_utilisateur`
-  ADD PRIMARY KEY (`identifiant`),
-  ADD UNIQUE KEY `compte_utilisateur_utilisateur0_AK` (`id_utilisateur`);
+  ADD PRIMARY KEY (`email`);
 
 --
 -- Index pour la table `espece`
@@ -282,15 +258,16 @@ ALTER TABLE `espece`
 --
 ALTER TABLE `perdu_trouve`
   ADD PRIMARY KEY (`id_perdu_trouve`),
-  ADD UNIQUE KEY `perdu_trouve_Animal0_AK` (`id_animal`),
-  ADD KEY `perdu_trouve_utilisateur0_FK` (`id_utilisateur`);
+  ADD KEY `perdu_trouve_utilisateur0_FK` (`id_utilisateur`),
+  ADD KEY `perdu_trouve_espece1_FK` (`id_espece`);
 
 --
 -- Index pour la table `pet_sitter`
 --
 ALTER TABLE `pet_sitter`
   ADD PRIMARY KEY (`id_pet_sitter`),
-  ADD KEY `pet_sitter_utilisateur0_FK` (`id_utilisateur`);
+  ADD KEY `pet_sitter_utilisateur0_FK` (`id_utilisateur`),
+  ADD KEY `pet_sitter_espece1_FK` (`id_espece`);
 
 --
 -- Index pour la table `refuge`
@@ -324,7 +301,7 @@ ALTER TABLE `topic`
 --
 ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`id_utilisateur`),
-  ADD UNIQUE KEY `utilisateur_compte_utilisateur0_AK` (`identifiant`),
+  ADD UNIQUE KEY `utilisateur_compte_utilisateur0_AK` (`email`),
   ADD KEY `utilisateur_role1_FK` (`id_role`);
 
 --
@@ -336,6 +313,12 @@ ALTER TABLE `utilisateur`
 --
 ALTER TABLE `adoption`
   MODIFY `id_adoption` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `animal`
+--
+ALTER TABLE `animal`
+  MODIFY `id_animal` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `article`
@@ -401,8 +384,7 @@ ALTER TABLE `adoption`
 -- Contraintes pour la table `animal`
 --
 ALTER TABLE `animal`
-  ADD CONSTRAINT `Animal_adoption1_FK` FOREIGN KEY (`id_adoption`) REFERENCES `adoption` (`id_adoption`),
-  ADD CONSTRAINT `Animal_perdu_trouve0_FK` FOREIGN KEY (`id_perdu_trouve`) REFERENCES `perdu_trouve` (`id_perdu_trouve`);
+  ADD CONSTRAINT `Animal_espece1_FK` FOREIGN KEY (`id_espece`) REFERENCES `espece` (`id_espece`);
 
 --
 -- Contraintes pour la table `article`
@@ -417,29 +399,17 @@ ALTER TABLE `commentaire`
   ADD CONSTRAINT `commentaire_topic0_FK` FOREIGN KEY (`id_topic`) REFERENCES `topic` (`id_topic`);
 
 --
--- Contraintes pour la table `comporte`
---
-ALTER TABLE `comporte`
-  ADD CONSTRAINT `comporte_espece1_FK` FOREIGN KEY (`id_espece`) REFERENCES `espece` (`id_espece`),
-  ADD CONSTRAINT `comporte_pet_sitter0_FK` FOREIGN KEY (`id_pet_sitter`) REFERENCES `pet_sitter` (`id_pet_sitter`);
-
---
--- Contraintes pour la table `compte_utilisateur`
---
-ALTER TABLE `compte_utilisateur`
-  ADD CONSTRAINT `compte_utilisateur_utilisateur0_FK` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
-
---
 -- Contraintes pour la table `perdu_trouve`
 --
 ALTER TABLE `perdu_trouve`
-  ADD CONSTRAINT `perdu_trouve_Animal1_FK` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id_animal`),
+  ADD CONSTRAINT `perdu_trouve_espece1_FK` FOREIGN KEY (`id_espece`) REFERENCES `espece` (`id_espece`),
   ADD CONSTRAINT `perdu_trouve_utilisateur0_FK` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
 
 --
 -- Contraintes pour la table `pet_sitter`
 --
 ALTER TABLE `pet_sitter`
+  ADD CONSTRAINT `pet_sitter_espece1_FK` FOREIGN KEY (`id_espece`) REFERENCES `espece` (`id_espece`),
   ADD CONSTRAINT `pet_sitter_utilisateur0_FK` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
 
 --
@@ -465,7 +435,7 @@ ALTER TABLE `topic`
 -- Contraintes pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  ADD CONSTRAINT `utilisateur_compte_utilisateur0_FK` FOREIGN KEY (`identifiant`) REFERENCES `compte_utilisateur` (`identifiant`),
+  ADD CONSTRAINT `utilisateur_compte_utilisateur0_FK` FOREIGN KEY (`email`) REFERENCES `compte_utilisateur` (`email`),
   ADD CONSTRAINT `utilisateur_role1_FK` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`);
 COMMIT;
 

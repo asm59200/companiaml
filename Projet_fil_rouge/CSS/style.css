@@ -105,6 +105,11 @@ footer a:hover{
 
 /*/////////////////////////petsitter adoption perdu trouve//////////////////////////*/
 
+.title-filtre {
+    background-color:#5E503F;
+    color:white; 
+    border-radius: 10px; 
+}
 
 .btn-admin{
     background-color:#5E503F ;

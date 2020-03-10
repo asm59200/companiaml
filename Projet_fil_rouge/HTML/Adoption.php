@@ -68,105 +68,61 @@
         </div>
 
         <!-- bloc annonces adoption -->
-        <div class="row justify-content-center">
+        <div class="row justify-content-center ">
 
           <div class="col-lg-8 mb-3">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center ">
               <div class="col-lg-3 text-center ">
                 <button class="btn btn-admin mt-3" type="submit">
                   <a style="color: white;" href="http://localhost/ProjetDWWM/HTML/FormAdoption.php?Action=AjoutAdoption">Créer une annonce</a>
                 </button>
               </div>
             </div>
-            <div class="row aff-article justify-content-center mt-3">
-              <div class="col-lg-3 col-md-7 col-sm-8  aside-adopt">
-                <div class="row bloc-aside justify-content-center mt-5">
+            <div class="row aff-article justify-content-around mt-3 ">
+              <div class="col-lg-3 col-md-7 col-sm-8  aside-adopt m-3">
+                <div class="row bloc-aside justify-content-center ">
                   <h5 class="pt-2">Panpan</h5>
                   <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
                   <div class="col-12 adop_dessous_carte"></div>    
                 </div> 
               </div>
-              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt">
-                <div class="row bloc-aside justify-content-center mt-5">
+              <div class="col-lg-3 col-md-7 col-sm-8  aside-adopt m-3">
+                <div class="row bloc-aside justify-content-center ">
                   <h5 class="pt-2">Panpan</h5>
-                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""> </a>
-                  <div class="col-12 adop_dessous_carte"></div>  
-                </div>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"></div>    
+                </div> 
               </div>
-              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt mb-5">
-                <div class="row bloc-aside justify-content-center mt-5">
+              <div class="col-lg-3 col-md-7 col-sm-8  aside-adopt m-3">
+                <div class="row bloc-aside justify-content-center ">
                   <h5 class="pt-2">Panpan</h5>
-                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""> </a>
-                  <div class="col-12 adop_dessous_carte"></div>  
-                </div>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"></div>    
+                </div> 
               </div>
-            
-              <div class="col-lg-3 col-md-7 col-sm-8  aside-adopt">
-                <div class="row bloc-aside justify-content-center mt-5">
+              <div class="col-lg-3 col-md-7 col-sm-8  aside-adopt m-3">
+                <div class="row bloc-aside justify-content-center ">
                   <h5 class="pt-2">Panpan</h5>
-                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""> </a>
-                  <div class="col-12 adop_dessous_carte"></div>  
-                </div>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"></div>    
+                </div> 
               </div>
-              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt">
-                <div class="row bloc-aside justify-content-center mt-5">
+              <div class="col-lg-3 col-md-7 col-sm-8  aside-adopt m-3">
+                <div class="row bloc-aside justify-content-center ">
                   <h5 class="pt-2">Panpan</h5>
-                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""> </a>
-                  <div class="col-12 adop_dessous_carte"></div>  
-                </div>
+                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""></a> 
+                  <div class="col-12 adop_dessous_carte"></div>    
+                </div> 
               </div>
-              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt mb-5">
-                <div class="row bloc-aside justify-content-center mt-5">
-                  <h5 class="pt-2">Panpan</h5>
-                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""> </a>
-                  <div class="col-12 adop_dessous_carte"></div>  
-                </div>
-              </div>
-            
-              <div class="col-lg-3 col-md-7 col-sm-8 aside-adopt">
-                <div class="row bloc-aside justify-content-center mt-5">
-                  <h5 class="pt-2">Panpan</h5>
-                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""> </a>
-                  <div class="col-12 adop_dessous_carte"></div>  
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt">
-                <div class="row bloc-aside justify-content-center mt-5">
-                  <h5 class="pt-2">Panpan</h5>
-                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""> </a>
-                  <div class="col-12 adop_dessous_carte"></div>  
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-7 col-sm-8  offset-lg-1 aside-adopt mb-5">
-                <div class="row bloc-aside justify-content-center mt-5">
-                  <h5 class="pt-2">Panpan</h5>
-                  <a href=""><img class="img-aside" src="../img/lapin_trouve.jpg" alt=""> </a>
-                  <div class="col-12 adop_dessous_carte"></div>  
-                </div>
-              </div>
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+             
             </div>
           </div>
-          <!-- bloc recherche en aside en lg -->
-          <div class="col-lg-2 aside-adopt ml-lg-3 mt-4 d-none d-lg-block ">
+             <!-- bloc recherche en aside en lg -->
+            
+          <div class="col-lg-2 aside-adopt d-lg-3 mt-4 d-none d-lg-block text-center title-filtre ml-5 ">
+            <div class="col-12 title-filtre mt-3">
+                  <h5 >Filtrer</h5>
+            </div>
             <div class="row bloc-aside1 justify-content-center ">
               <form class="was-validated">
                 <div class="form-group row mt-2 justify-content-center ">
@@ -209,6 +165,35 @@
               </form>
             </div>
           </div>
+          </div>
+        </div>
+            
+          <div class="row ">
+            <div class="col-2 offset-4  mt-3 text-center " >
+                <nav aria-label="Page navigation example" class="text-center">
+                  <ul class="pagination ">
+                    <li class="page-item ">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            </div>
+            
+         
         </div>
       </div>
       <!-- debut page       -->

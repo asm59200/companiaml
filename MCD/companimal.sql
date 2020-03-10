@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 10 mars 2020 à 19:12
+-- Généré le : mar. 10 mars 2020 à 19:54
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.2
 
@@ -119,7 +119,8 @@ CREATE TABLE `pet_sitter` (
   `type_domicile_pet_sitter` tinyint(1) NOT NULL,
   `presentation_telephone` tinyint(1) NOT NULL,
   `description_pet_sitter` varchar(500) NOT NULL,
-  `id_utilisateur` int(11) NOT NULL
+  `id_utilisateur` int(11) NOT NULL,
+  `nom_espece` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -255,7 +256,8 @@ ALTER TABLE `perdu_trouve`
 --
 ALTER TABLE `pet_sitter`
   ADD PRIMARY KEY (`id_pet_sitter`),
-  ADD KEY `pet_sitter_utilisateur0_FK` (`id_utilisateur`);
+  ADD KEY `pet_sitter_utilisateur0_FK` (`id_utilisateur`),
+  ADD KEY `nom_espece` (`nom_espece`);
 
 --
 -- Index pour la table `race`
@@ -380,6 +382,7 @@ ALTER TABLE `perdu_trouve`
 -- Contraintes pour la table `pet_sitter`
 --
 ALTER TABLE `pet_sitter`
+  ADD CONSTRAINT `pet_sitter_ibfk_1` FOREIGN KEY (`nom_espece`) REFERENCES `espece` (`nom_espece`),
   ADD CONSTRAINT `pet_sitter_utilisateur0_FK` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
 
 --

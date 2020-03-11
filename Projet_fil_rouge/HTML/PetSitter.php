@@ -78,43 +78,12 @@
                 <button class="btn col-lg-5 col-sm-5 btn-admin mt-2" type="submit"><a>Supprimer</a></button>
               </div>
             </div>
-            <div class="row justify-content-center mt-3 mb-3">
-              <div class="col-lg-7 mt-3">
-                <h4>Titre annonce pet'sitter</h4>
-              </div>
-              <div class="col-lg-6 col-sm-10 text-left par-article ">
-                <p>Aidez-nous à mener à bien nos missions ! 
-                  La SPA vit principalement de la générosité
-                   du public et compte donc sur votre soutien
-                    pour secourir, défendre et protéger les animaux.</p>
-              </div>
-              <div class="col-lg-5 col-sm-12 align-self-center">
-                <div class="col-sm-12 mt-3">
-                  <img class="img-article   " src="../img/petsit.webp" alt="">
-                </div>  
-                <button class="btn col-lg-9 col-sm-7 mt-2" type="submit"><a>Consulter l'annonce</a></button>
-                <button class="btn col-lg-5 col-sm-5 btn-admin mt-2" type="submit"><a>Modifier</a></button>
-                <button class="btn col-lg-5 col-sm-5 btn-admin mt-2" type="submit"><a>Supprimer</a></button>
-              </div>
-            </div>
-            <div class="row justify-content-center mt-3 mb-3">
-              <div class="col-lg-7 mt-3">
-                <h4>Titre annonce pet'sitter</h4>
-              </div>
-              <div class="col-lg-6 col-sm-10 text-left par-article ">
-                <p>Aidez-nous à mener à bien nos missions ! 
-                  La SPA vit principalement de la générosité
-                   du public et compte donc sur votre soutien
-                    pour secourir, défendre et protéger les animaux.</p>
-              </div>
-              <div class="col-lg-5 col-sm-12 align-self-center">
-                <div class="col-sm-12 mt-3">
-                  <img class="img-article   " src="../img/petsit.webp" alt="">
-                </div>  
-                <button class="btn col-lg-9 col-sm-7 mt-2" type="submit"><a>Consulter l'annonce</a></button>
-                <button class="btn col-lg-5 col-sm-5 btn-admin mt-2" type="submit"><a>Modifier</a></button>
-                <button class="btn col-lg-5 col-sm-5 btn-admin mt-2" type="submit"><a>Supprimer</a></button>
-              </div>
+            
+
+
+
+            <!-- pagination -->
+            <div class="row justify-content-center">
               <nav aria-label="Page navigation example" class="mt-3">
                 <ul class="pagination">
                   <li class="page-item">

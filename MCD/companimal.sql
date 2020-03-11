@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 10 mars 2020 à 19:54
+-- Généré le : mer. 11 mars 2020 à 19:05
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.2
 
@@ -30,13 +30,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `animal` (
   `id_adoption` int(11) NOT NULL,
-  `nom_animal` varchar(20) NOT NULL,
+  `nom_animal` varchar(30) NOT NULL,
   `naissance_animal` date NOT NULL,
-  `sexe_animal` varchar(20) NOT NULL,
+  `sexe_animal` tinyint(1) NOT NULL,
   `photo_animal` blob DEFAULT NULL,
-  `description_animal` varchar(1) NOT NULL,
+  `description_animal` varchar(500) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
-  `Nom_race` varchar(50) NOT NULL,
+  `nom_espece` varchar(50) NOT NULL,
   `nom_refuge` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -74,9 +74,18 @@ CREATE TABLE `commentaire` (
 --
 
 CREATE TABLE `compte_utilisateur` (
-  `email` varchar(20) NOT NULL,
-  `mot_de_passe` varchar(10) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `mot_de_passe` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `compte_utilisateur`
+--
+
+INSERT INTO `compte_utilisateur` (`email`, `mot_de_passe`) VALUES
+('asm59200@gmail.com', '1234'),
+('leclercqjerome59200@gmail.com ', '1234'),
+('maxim590@hotmail.fr', '1234');
 
 -- --------------------------------------------------------
 
@@ -87,6 +96,16 @@ CREATE TABLE `compte_utilisateur` (
 CREATE TABLE `espece` (
   `nom_espece` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `espece`
+--
+
+INSERT INTO `espece` (`nom_espece`) VALUES
+('Chat'),
+('Chien'),
+('Lapin'),
+('Souris');
 
 -- --------------------------------------------------------
 
@@ -101,6 +120,7 @@ CREATE TABLE `perdu_trouve` (
   `lieu_perdu_trouve` varchar(30) NOT NULL,
   `date_perdu_trouve` date NOT NULL,
   `code_postale_perdu_trouve` int(11) NOT NULL,
+  `photo_perdu` blob DEFAULT NULL,
   `id_utilisateur` int(11) NOT NULL,
   `nom_espece` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -120,7 +140,7 @@ CREATE TABLE `pet_sitter` (
   `presentation_telephone` tinyint(1) NOT NULL,
   `description_pet_sitter` varchar(500) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
-  `nom_espece` varchar(50) DEFAULT NULL
+  `nom_espece` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -134,6 +154,17 @@ CREATE TABLE `race` (
   `nom_espece` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `race`
+--
+
+INSERT INTO `race` (`Nom_race`, `nom_espece`) VALUES
+('Persan', 'Chat'),
+('Siamois', 'Chat'),
+('Berger Allemand', 'Chien'),
+('Labradore', 'Chien'),
+('Geant des flandres', 'Lapin');
+
 -- --------------------------------------------------------
 
 --
@@ -145,11 +176,20 @@ CREATE TABLE `refuge` (
   `adresse_refuge` varchar(50) NOT NULL,
   `code_postal_refuge` int(11) NOT NULL,
   `ville_refuge` varchar(40) NOT NULL,
-  `photo_refuge` blob NOT NULL,
-  `email_refuge` varchar(20) NOT NULL,
+  `photo_refuge` blob DEFAULT NULL,
+  `email_refuge` varchar(50) NOT NULL,
   `telephone_refuge` int(11) NOT NULL,
   `id_utilisateur` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `refuge`
+--
+
+INSERT INTO `refuge` (`nom_refuge`, `adresse_refuge`, `code_postal_refuge`, `ville_refuge`, `photo_refuge`, `email_refuge`, `telephone_refuge`, `id_utilisateur`) VALUES
+('Refuge de Lens', '11 Rue Nicolas Leblanc', 62800, 'Liévin', NULL, 'refugedelens@gmail.com', 321212121, 1),
+('Refuge de Lille', 'Chemin de Bargues ', 59000, 'Lille', NULL, 'refugedelille@gmail.com', 320202020, 3),
+('Refuge de Valenciennes', '34 Route de Préseau', 59770, 'Marly', NULL, 'refugedevalenciennes@gmail.com', 322222222, 2);
 
 -- --------------------------------------------------------
 
@@ -171,6 +211,15 @@ CREATE TABLE `reponse` (
 CREATE TABLE `role` (
   `nom_role` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `role`
+--
+
+INSERT INTO `role` (`nom_role`) VALUES
+('Admin'),
+('Membre'),
+('SuperAdmin');
 
 -- --------------------------------------------------------
 
@@ -194,15 +243,24 @@ CREATE TABLE `topic` (
 
 CREATE TABLE `utilisateur` (
   `id_utilisateur` int(11) NOT NULL,
-  `nom_utilisateur` varchar(20) NOT NULL,
-  `prenom_utilisateur` varchar(20) NOT NULL,
+  `nom_utilisateur` varchar(30) NOT NULL,
+  `prenom_utilisateur` varchar(30) NOT NULL,
   `adresse_utilisateur` varchar(50) DEFAULT NULL,
   `code_postal_utilisateur` int(11) DEFAULT NULL,
-  `ville_utilisateur` varchar(20) DEFAULT NULL,
+  `ville_utilisateur` varchar(30) DEFAULT NULL,
   `telephone_utilisateur` int(11) DEFAULT NULL,
-  `email` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `nom_role` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `adresse_utilisateur`, `code_postal_utilisateur`, `ville_utilisateur`, `telephone_utilisateur`, `email`, `nom_role`) VALUES
+(1, 'Goulin', 'Matthieu', NULL, NULL, NULL, NULL, 'asm59200@gmail.com', 'SuperAdmin'),
+(2, 'Leclercq', 'Jerome', NULL, NULL, NULL, NULL, 'leclercqjerome59200@gmail.com ', 'SuperAdmin'),
+(3, 'Lespagnol', 'Maxime', NULL, NULL, NULL, NULL, 'maxim590@hotmail.fr', 'SuperAdmin');
 
 --
 -- Index pour les tables déchargées
@@ -214,7 +272,7 @@ CREATE TABLE `utilisateur` (
 ALTER TABLE `animal`
   ADD PRIMARY KEY (`id_adoption`),
   ADD KEY `Animal_utilisateur0_FK` (`id_utilisateur`),
-  ADD KEY `Animal_Race1_FK` (`Nom_race`),
+  ADD KEY `Animal_espece1_FK` (`nom_espece`),
   ADD KEY `Animal_refuge2_FK` (`nom_refuge`);
 
 --
@@ -257,7 +315,7 @@ ALTER TABLE `perdu_trouve`
 ALTER TABLE `pet_sitter`
   ADD PRIMARY KEY (`id_pet_sitter`),
   ADD KEY `pet_sitter_utilisateur0_FK` (`id_utilisateur`),
-  ADD KEY `nom_espece` (`nom_espece`);
+  ADD KEY `pet_sitter_espece1_FK` (`nom_espece`);
 
 --
 -- Index pour la table `race`
@@ -345,7 +403,7 @@ ALTER TABLE `topic`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
@@ -355,7 +413,7 @@ ALTER TABLE `utilisateur`
 -- Contraintes pour la table `animal`
 --
 ALTER TABLE `animal`
-  ADD CONSTRAINT `Animal_Race1_FK` FOREIGN KEY (`Nom_race`) REFERENCES `race` (`Nom_race`),
+  ADD CONSTRAINT `Animal_espece1_FK` FOREIGN KEY (`nom_espece`) REFERENCES `espece` (`nom_espece`),
   ADD CONSTRAINT `Animal_refuge2_FK` FOREIGN KEY (`nom_refuge`) REFERENCES `refuge` (`nom_refuge`),
   ADD CONSTRAINT `Animal_utilisateur0_FK` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
 
@@ -382,7 +440,7 @@ ALTER TABLE `perdu_trouve`
 -- Contraintes pour la table `pet_sitter`
 --
 ALTER TABLE `pet_sitter`
-  ADD CONSTRAINT `pet_sitter_ibfk_1` FOREIGN KEY (`nom_espece`) REFERENCES `espece` (`nom_espece`),
+  ADD CONSTRAINT `pet_sitter_espece1_FK` FOREIGN KEY (`nom_espece`) REFERENCES `espece` (`nom_espece`),
   ADD CONSTRAINT `pet_sitter_utilisateur0_FK` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
 
 --

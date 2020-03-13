@@ -1,7 +1,7 @@
 <?php
-include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\DAO\PetSitterDAO.php');
-include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\MODEL\PetSitter.php');
-include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\DAO\BDDConnexionDAO.php');
+include_once ('..\DAO\PetSitterDAO.php');
+include_once ('..\MODEL\PetSitter.php');
+include_once ('..\DAO\BDDConnexionDAO.php');
 
 Class ServicePetsitter extends BDDConnexionDAO{
 

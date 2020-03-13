@@ -1,6 +1,6 @@
 <?php
-include_once('C:\xampp\htdocs\Exercices\Projet_fil_rouge\SERVICE\ServicePetSitter.php');
-include_once('C:\xampp\htdocs\Exercices\Projet_fil_rouge\DAO\PetSitterDAO.php');
+include_once('..\SERVICE\ServicePetSitter.php');
+include_once('..\DAO\PetSitterDAO.php');
 ?>
 
 
@@ -104,14 +104,13 @@ echo"      <div class='col-lg-6 col-sm-10 text-left par-article '>  ";
 echo"             <p>".$data[$i]['description_pet_sitter']."</p> ";
 echo"      </div> ";
 echo"      <div class='col-lg-5 col-sm-12 align-self-center'> ";
-echo'            <img  width="290" src=".../img/lapin_trouve.jpg"/>';
+echo'            <img  width="280px" src="../img/LogoV3png.png" />';
 
 /* echo '            <img  width="290" src="data:image/;base64,'.base64_encode( $data[$i]['photo_pet_sitter'] ).'"/>'; */
 
 /* Bouton consulter annonce */
-
 echo '        <form action="FichePetSitter.php" method="post">';
-echo '          <input Class="btn mb-2 mt-2" type="submit" value="Consulter l annonce"> ' ;                                                       
+echo '          <input Class="btn mb-2 mt-2" type="submit" value="Consulter l\'annonce"> ' ;                                                       
 echo '          <input type="hidden" name="consulter" value="'.$data[$i]['id_pet_sitter'].'">';
 echo '        </form>';
 

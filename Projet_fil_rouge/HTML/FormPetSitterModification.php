@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <!-- Formulaire Pet'Sitter -->
-                    <form method="post"  action="PetSitter.php?action=<?php echo $data[0][0]  ?>">
+                    <form method="post"  action="PetSitter.php?action=petsitter">
                         <!-- Nom de l'annonce-->                        
                         <div class="form-group row">
                             <div class="col-lg-3"></div>
@@ -73,6 +73,7 @@
                             <label for="GardePetSitter" class="col-lg-3 col-form-label">Type de Garde</label>
                             <div class="col-lg-4 col-6">
 
+                        <!-- Affichage des Radios  Ps: C'est de a merde. Romain le 13/03/2020 à 13:28-->
 <?php if(isset($_POST['modifier'])){
                     if($data[0][3] == "Chez moi"){
             echo"            <div class='form-check form-check-inline'>";
@@ -98,7 +99,7 @@
             echo"          </div>";            
                     } 
                     
-                    if($data[0][3] == ""){
+                    if($data[0][3] == "Promenade"){
             echo"            <div class='form-check form-check-inline'>";
             echo"            <input class='form-check-input' type='radio' name='Garde' id='inlineRadio1' value='Promenade' checked required>";
             echo"            <label class='form-check-label' for='Promenade'>Promenade</label>";
@@ -168,7 +169,7 @@
                                 <select class="form-control" name="EspecePetSitter">
                                     <option>Chien</option>
                                     <option>Chat</option>
-                                    <option>Crocodile</option>
+                                    <option>Lapin</option>
                                 </select>
                             </div>
                         </div>

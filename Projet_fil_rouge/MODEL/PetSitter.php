@@ -1,11 +1,16 @@
 <?php
+include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\DAO\PetSitterDAO.php');
+include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\SERVICE\ServicePetSitter.php');
+
 
 class PetSitter{
 
     private $idPetSitter;
+    private $titrePetSitter;
     private $distancePetSitter;
     private $typeGardePetSitter;
     private $typeDomicilePetSitter;
+    private $dowloadPhotoPetSitter;
     private $presentationTelephone;
     private $descriptionPetSitter;
     private $idUtilisateur;
@@ -168,6 +173,48 @@ class PetSitter{
     public function setIdEspece($idEspece)
     {
         $this->idEspece = $idEspece;
+
+        return $this;
+    }
+
+   
+
+    /**
+     * Get the value of dowloadPhotoPetSitter
+     */ 
+    public function getdowloadPhotoPetSitter()
+    {
+        return $this->dowloadPhotoPetSitter;
+    }
+
+    /**
+     * Set the value of dowloadPhotoPetSitter
+     *
+     * @return  self
+     */ 
+    public function setdowloadPhotoPetSitter($dowloadPhotoPetSitter)
+    {
+        $this->dowloadPhotoPetSitter = $dowloadPhotoPetSitter;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of titrePetSitter
+     */ 
+    public function getTitrePetSitter()
+    {
+        return $this->titrePetSitter;
+    }
+
+    /**
+     * Set the value of titrePetSitter
+     *
+     * @return  self
+     */ 
+    public function setTitrePetSitter($titrePetSitter)
+    {
+        $this->titrePetSitter = $titrePetSitter;
 
         return $this;
     }

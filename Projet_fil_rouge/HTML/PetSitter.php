@@ -1,3 +1,9 @@
+<?php
+include_once('C:\xampp\htdocs\Exercices\Projet_fil_rouge\SERVICE\ServicePetSitter.php');
+include_once('C:\xampp\htdocs\Exercices\Projet_fil_rouge\DAO\PetSitterDAO.php');
+?>
+
+
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -56,31 +62,83 @@
           <div class="col-lg-8 aff-article m-sm-4">
             <div class="row justify-content-center">
               <div class="col-lg-6 ">
-                <button class="btn btn-admin mt-3" type="submit"><a>Créer une annonce</a></button>
+                <a class="btn btn-admin mt-3" href="FormPetSitter.php">Créer une annonce</a></button>
               </div>
             </div>
-            <div class="row justify-content-center mt-3 mb-3">
-              <div class="col-lg-7 mt-3">
-                <h4>Titre annonce pet'sitter</h4>
-              </div>
-              <div class="col-lg-6 col-sm-10 text-left par-article ">
-                <p>Aidez-nous à mener à bien nos missions ! 
-                  La SPA vit principalement de la générosité
-                   du public et compte donc sur votre soutien
-                    pour secourir, défendre et protéger les animaux.</p>
-              </div>
-              <div class="col-lg-5 col-sm-12 align-self-center">
-                <div class="col-sm-12 mt-3">
-                  <img class="img-article   " src="../img/petsit.webp" alt="">
-                </div>  
-                <button class="btn col-lg-9 col-sm-7 mt-2" type="submit"><a>Consulter l'annonce</a></button>
-                <button class="btn col-lg-5 col-sm-5 btn-admin mt-2" type="submit"><a>Modifier</a></button>
-                <button class="btn col-lg-5 col-sm-5 btn-admin mt-2" type="submit"><a>Supprimer</a></button>
-              </div>
-            </div>
-            
+
+ <!-- Affichage annonce -->
+ <?php
+
+/* Ajout d'une annonce */
+if(isset($_POST["valider"])&& $_GET['action']=='ajout') {
+    $servicePetSitter = new ServicePetsitter;
+    $servicePetSitter -> ajoutPetsitter($_POST);
+}
+
+/* Suppression d'une annonce */
+if (isset($_GET['action'])&& $_GET['action']='del' && isset($_GET['id_pet_sitter'])){
+  $serviceEmp = new PetSitterDAO;
+  $serviceEmp -> deleteAnnonce($_GET['id_pet_sitter']);
+} 
+
+/* Modification des employes */
+if(isset($_POST["modif"])){
+  $serviceEmp = new ServicePetsitter;
+  $serviceEmp -> modify($_POST); 
+}
+
+$db = mysqli_init();
+mysqli_real_connect($db, 'localhost','root','','companimal');
+$rs=mysqli_query($db, "SELECT * FROM pet_sitter");
+$data=mysqli_fetch_all($rs,MYSQLI_ASSOC);
+$i=0 ; 
 
 
+for($i=0; $i<=count($data)-1; $i++){
+  
+echo"      <div class='row justify-content-center mt-3 mb-3'>   ";
+echo"           <div class='col-lg-7 mt-3 mb-3'>";
+echo"             <h4>".$data[$i]['titre_pet_sitter']."</h4>";
+echo"           </div> ";
+echo"      <div class='col-lg-6 col-sm-10 text-left par-article '>  ";
+echo"             <p>".$data[$i]['description_pet_sitter']."</p> ";
+echo"      </div> ";
+echo"      <div class='col-lg-5 col-sm-12 align-self-center'> ";
+echo'            <img  width="290" src=".../img/lapin_trouve.jpg"/>';
+
+/* echo '            <img  width="290" src="data:image/;base64,'.base64_encode( $data[$i]['photo_pet_sitter'] ).'"/>'; */
+
+/* Bouton consulter annonce */
+
+echo '        <form action="FichePetSitter.php" method="post">';
+echo '          <input Class="btn mb-2 mt-2" type="submit" value="Consulter l annonce"> ' ;                                                       
+echo '          <input type="hidden" name="consulter" value="'.$data[$i]['id_pet_sitter'].'">';
+echo '        </form>';
+
+/* Bouton modifier annonce */
+echo '        <form action="FormPetSitterModification.php" method="post">';
+echo '            <input Class="btn btn-primary" type="submit" value="modifier"> ' ;                                                       
+echo '             <input type="hidden" name="modifier" value="'.$data[$i]['id_pet_sitter'].'">';
+/* Bouton supprilmer annonce */
+echo '<a value="del" class="btn btn-danger"  href="PetSitter.php?action=del&id_pet_sitter='.$data[$i]['id_pet_sitter'].'" style="color:white; text-decoration:none;">Supprimer</a></div>';
+echo '</form>'; 
+
+
+
+/*
+echo '        <form action="FormPetSitterModification.php" method="post">';
+echo '          <input Class="" type="submit" value="modifier"> ' ;                                                       
+echo '         <input Class="" type="hidden" name="modifier" value="'.$data[$i]['id_pet_sitter'].'">';
+echo '        </form>'; 
+echo '    </div>';
+echo'     <a value="del" class="btn btn-danger col-lg-5 col-sm-5"  href="PetSitter.php?action=del&id_pet_sitter='.$data[$i]['id_pet_sitter'].'" style="color:white; text-decoration:none;">Supprimer</a>';
+*/       
+echo"         </div> ";
+
+
+}
+  
+?>  
 
             <!-- pagination -->
             <div class="row justify-content-center">

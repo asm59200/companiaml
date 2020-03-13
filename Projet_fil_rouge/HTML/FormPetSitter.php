@@ -31,22 +31,21 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <!-- Formulaire Pet'Sitter -->
-                    <form>
-                        <!-- Nom de l'annonce-->
+                    <form method="post"   action="PetSitter.php?action=ajout">
+                        <!-- Nom de l'annonce-->                        
                         <div class="form-group row">
                             <div class="col-lg-3"></div>
                             <label for="NomAnnonceFormPetSitter" class="col-lg-3 col-form-label">Nom de l'Annonce :</label>
                             <div class="col-lg-4 col-6">
-                              <input type="text" class="form-control" id="NomAnnonceFormPetSitter">
+                              <input type="text" class="form-control" name="NomAnnonceFormPetSitter">
                             </div>
-                        </div>
-                        
+                        </div>                        
                         <!-- Lieu -->
                         <div class="form-group row">
                             <div class="col-lg-3"></div>
                             <label for="CodePostalLieuPetSitter" class="col-lg-3 col-form-label">Code Postal :</label>
                             <div class="col-lg-4 col-6">
-                              <input type="number" class="form-control" id="CodePostalPetSitter">
+                              <input type="number" class="form-control" name="CodePostalPetSitter">
                             </div>
                         </div>
                         <!-- Type de Garde-->
@@ -55,17 +54,18 @@
                             <label for="GardePetSitter" class="col-lg-3 col-form-label">Type de Garde</label>
                             <div class="col-lg-4 col-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="ChezMoi" id="inlineRadio1" value="option1">
+                                   
+                                    <input class="form-check-input" type="radio" name="Garde" id="inlineRadio1" value="Chez moi">
                                     <label class="form-check-label" for="ChezMoi">Chez moi</label>
                                   </div>
 
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="ChezVous" id="inlineRadio2" value="option2">
+                                    <input class="form-check-input" type="radio" name="Garde" id="inlineRadio2" value="Chez vous">
                                     <label class="form-check-label" for="ChezVous">Chez vous</label>
                                   </div>
 
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="Promenade" id="inlineRadio2" value="option2">
+                                    <input class="form-check-input" type="radio" name="Garde" id="inlineRadio2" value="Promenade">
                                     <label class="form-check-label" for="Promenade">Promenade</label>
                                   </div>
                             </div>
@@ -76,12 +76,12 @@
                             <label for="DomicilePetSitter" class="col-lg-3 col-form-label">Chez Moi</label>
                             <div class="col-lg-4 col-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="Maison" id="inlineRadio1" value="option1">
+                                    <input class="form-check-input" type="radio" name="Domicile" id="inlineRadio1" value="Maison">
                                     <label class="form-check-label" for="Maison">Maison</label>
                                   </div>
 
                                   <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="Appartement"" id="inlineRadio2" value="option2">
+                                    <input class="form-check-input" type="radio" name="Domicile" id="inlineRadio2" value="Appartement">
                                     <label class="form-check-label" for="Appartement">Appartement</label>
                                   </div>
                             </div>
@@ -89,20 +89,23 @@
                         <!--Télécharger une photo-->
                         <div class="form-group row">
                             <div class="col-lg-3"></div>
-                            <label for="DowloadPhotoPetSitter" class="col-lg-3 col-form-label">Télécharger une Photo :</label>
+                            <label class="col-lg-3 col-form-label">Télécharger une Photo :</label>
+                            
                             <div class="col-lg-4 col-6">
-                                <input type="file" class="form-control-file" id="DowloadPhotoPetSitter">
+                                <input type="file" class="form-control-file" name="DowloadPhotoPetSitter">
                             </div>
-                        </div>    
+                        </div>  
+                        
+                        
                         <!-- Esepece Animal Gardé-->
                         <div class="form-group row">
                             <div class="col-lg-3"></div>
                             <label for="EspecePetSitter" class="col-lg-3 col-form-label">Espéce d'Animal Gardé:</label>
                             <div class="col-lg-4 col-6">
-                                <select class="form-control" id="EspecePetSitter">
+                                <select class="form-control" name="EspecePetSitter">
                                     <option>Chien</option>
                                     <option>Chat</option>
-                                    <option>Aligator</option>
+                                    <option>Lapin</option>
                                 </select>
                             </div>
                         </div>
@@ -111,14 +114,14 @@
                             <div class="col-lg-3"></div>
                             <label for="InfoCompPetSitter" class="col-lg-3 col-form-label">Information Complémentaire</label>
                             <div class="col-lg-4 col-6">
-                                <textarea class="form-control" id="InfoCompPetSitter" rows="6"></textarea>
+                                <textarea class="form-control" name="InfoCompPetSitter" rows="6"></textarea>
                             </div>
                         </div>
                         <!-- Bouton envoie Formulaire Pet'sitter-->
                         <div class="row">
                             <div class="col-lg-6"></div>
                             <div class="col-lg-2">
-                                <button type="button" class="btn">Valider</button>
+                                <button type="submit" name="valider" class="btn">Valider</button>
                             </div>
                         </div>   
                     </form>

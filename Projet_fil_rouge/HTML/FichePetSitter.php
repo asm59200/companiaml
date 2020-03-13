@@ -1,3 +1,10 @@
+<?php
+include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\SERVICE\ServicePetSitter.php');
+include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\DAO\BDDConnexionDAO.php');
+
+?>
+
+
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -13,6 +20,21 @@
 
         </head>
 <body>
+
+
+<?php 
+ $db = mysqli_init();
+ mysqli_real_connect($db, 'localhost',"root","","companimal");
+ $id = $_POST['consulter'];
+ $ligne = mysqli_query($db,"SELECT * FROM pet_sitter WHERE id_pet_sitter="."'$id'");
+ $data = mysqli_fetch_all($ligne,MYSQLI_BOTH);
+ $Utilisateur = mysqli_query($db,"SELECT * FROM utilisateur AS A join pet_sitter as B on A.id_utilisateur=B.id_utilisateur ");
+ $Utili = mysqli_fetch_all($Utilisateur,MYSQLI_BOTH);
+ 
+ ?>   
+
+
+
   <!-- Debut Body Fiche Pet Sitter-->
     <div class="Fiche">
         <div class="container-fluid">
@@ -26,39 +48,65 @@
                   </div>
           <!-- Texte Fiche Animal-->
                   <div class="Background-Color-Fiche-Texte">
-                      <h3 style="text-align:center; padding-top: 20px;">Nom de l'Annonce</h3>
+                      <h3 style="text-align:center; padding-top: 20px;"><?php if(isset($_POST["consulter"])){
+                                        echo $data[0][1];
+                                        
+                                    }  ?></h3>
                     <div class="row">
-                      <div class="col-lg-4 offset-lg-1 col-10 offset-1">
-                        <p> Nom / Prénom </p>
-                        <p> Lieu :</p>
-                        <p> Type de Garde</p>
-                        <p> Type de Domicile</p>
-                        <p> Type d'Animal Gardé</p>
+                      <div class="col-lg-12 offset-lg-1 black col-10 offset-1">
+                        <p><a class="text-dark"> Nom / Prénom :</a>  <?php if(isset($_POST["consulter"])){
+                                        echo "  ";
+                                        echo $Utili[0][1];
+                                        echo "  ";                     
+                                        echo $Utili[0][2];                                        
+                                    }  ?> </p> 
+                        <p><a class="text-dark"> Code Postal : </a><?php if(isset($_POST["consulter"])){
+                                        echo "  ";
+                                        echo $data[0][2];                                   
+                                    }  ?>  </p>
+                        <p><a class="text-dark"> Type de Garde : </a><?php if(isset($_POST["consulter"])){
+                                        echo "  ";
+                                        echo $data[0][3];                                   
+                                    }  ?> </p>
+                        <p><a class="text-dark"> Type de Domicile : </a><?php if(isset($_POST["consulter"])){
+                                        echo "  ";
+                                        echo $data[0][4];                                   
+                                    }  ?> </p>
+                        <p><a class="text-dark"> Type d'Animal Gardé : </a><?php if(isset($_POST["consulter"])){
+                                        echo "  ";
+                                        echo $data[0][8];                                   
+                                    }  ?> </p>
                       </div>
                     </div>
-                    <p style="text-align: center"> Information Complémentaire : </p>
+                    <p style="text-align: center"><a class="text-dark"> Information Complémentaire : </a></p>
                     <div class="row">
                       <div class="col-lg-8 offset-lg-2 col-10 offset-1 Commentaire-Box ">
-                        <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. 
-                          Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme 
-                          assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait 
-                          que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en 
-                          soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des 
-                          passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, 
-                          comme Aldus PageMaker.</p>
+                        <p><?php if(isset($_POST["consulter"])){
+                                        echo $data[0][6];
+                                        
+                                    }  ?></p>
                       </div>
                     </div>
                   </div>
-        <!-- Bouton Admin Creation/Suppresion-->
-                  <div class="row justify-content-end">
-                    <button type="button" class="btn btn-lg Bouton-Admin-1">Modifier</button>
-                    <button type="button" class="btn btn-lg Bouton-Admin-1">Supprimer</button>
+
+        <!-- Bouton Admin Modification/Suppresion-->
+                  <div class="row mr-2 justify-content-end">
+                    <form action="FormPetSitterModification.php" method="post">
+                        <input Class="btn mt-2 mr-2 btn-primary" type="submit" value="modifier">
+                        <input type="hidden" name="modifier" value="<?php echo $_POST['consulter']?> ">                    
+                    </form>
+                    <form action="PetSitter.php?action=del&id_pet_sitter=<?php echo $data[0][0]?>" method="post">
+                        <input value="Supprimer" type="submit" class="btn mt-2 mr-2 btn-danger" style="color:white; text-decoration:none;">
+                    </form>
                   </div>
 
         <!-- Bouton Contactez-Nous/information du Refuge-->
         <div class=" row justify-content-center">
           <button type="button" class="btn btn-lg Bouton-Admin-2">Contactez-Moi </button>
-          <button type="button" class="btn btn-lg Bouton-Admin-2">06.06.06.06.06.06.06.06</button>
+          <a class="btn-lg text-light Bouton-Admin-2">Tel : <?php if(isset($_POST["consulter"])){
+                                        echo "  ";
+                                        echo $Utili[0][6];                                   
+                                    }  ?>  </a>
         </div>
 
                 </div>

@@ -23,13 +23,16 @@ include_once ('..\DAO\BDDConnexionDAO.php');
 
 
 <?php 
+session_start();
+
  $db = mysqli_init();
  mysqli_real_connect($db, 'localhost',"root","","companimal");
  $id = $_POST['consulter'];
- $ligne = mysqli_query($db,"SELECT * FROM pet_sitter WHERE id_pet_sitter="."'$id'");
+ $ligne = mysqli_query($db,"SELECT * FROM pet_sitter AS A inner join utilisateur AS B on A.id_utilisateur=B.id_utilisateur WHERE id_pet_sitter="."'$id'");
  $data = mysqli_fetch_all($ligne,MYSQLI_BOTH);
- $Utilisateur = mysqli_query($db,"SELECT * FROM utilisateur AS A join pet_sitter as B on A.id_utilisateur=B.id_utilisateur ");
- $Utili = mysqli_fetch_all($Utilisateur,MYSQLI_BOTH);
+
+
+ 
  
  ?>   
 
@@ -56,9 +59,9 @@ include_once ('..\DAO\BDDConnexionDAO.php');
                       <div class="col-lg-12 offset-lg-1 black col-10 offset-1">
                         <p><a class="text-dark"> Nom / Prénom :</a>  <?php if(isset($_POST["consulter"])){
                                         echo "  ";
-                                        echo $Utili[0][1];
+                                        echo $data[0][11];
                                         echo "  ";                     
-                                        echo $Utili[0][2];                                        
+                                        echo $data[0][12];                                        
                                     }  ?> </p> 
                         <p><a class="text-dark"> Code Postal : </a><?php if(isset($_POST["consulter"])){
                                         echo "  ";
@@ -103,10 +106,11 @@ include_once ('..\DAO\BDDConnexionDAO.php');
         <!-- Bouton Contactez-Nous/information du Refuge-->
         <div class=" row justify-content-center">
           <button type="button" class="btn btn-lg Bouton-Admin-2">Contactez-Moi </button>
+          <?php if($data[0][5]=="oui"){?>
           <a class="btn-lg text-light Bouton-Admin-2">Tel : <?php if(isset($_POST["consulter"])){
                                         echo "  ";
-                                        echo $Utili[0][6];                                   
-                                    }  ?>  </a>
+                                        echo $data[0][16];                                   
+                                    }}  ?>  </a>
         </div>
 
                 </div>

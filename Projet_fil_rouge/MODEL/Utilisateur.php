@@ -10,7 +10,8 @@ class Utilisateur {
     private $villeUtilisateur;
     private $telephoneUtilisateur;
     private $email;
-    private $idRole;
+    private $motDePasse;
+    private $nomRole;
     
 
     /**
@@ -173,27 +174,49 @@ class Utilisateur {
         return $this;
     }
 
+    
+
+ 
+
     /**
-     * Get the value of idRole
+     * Get the value of nomRole
      */ 
-    public function getIdRole()
+    public function getNomRole()
     {
-        return $this->idRole;
+        return $this->nomRole;
     }
 
     /**
-     * Set the value of idRole
+     * Set the value of nomRole
      *
      * @return  self
      */ 
-    public function setIdRole($idRole)
+    public function setNomRole($nomRole)
     {
-        $this->idRole = $idRole;
+        $this->nomRole = $nomRole;
 
         return $this;
     }
 
- 
+    /**
+     * Get the value of motDePasse
+     */ 
+    public function getMotDePasse()
+    {
+        return $this->motDePasse;
+    }
+
+    /**
+     * Set the value of motDePasse
+     *
+     * @return  self
+     */ 
+    public function setMotDePasse($motDePasse)
+    {
+        $this->motDePasse = $motDePasse;
+
+        return $this;
+    }
 }
 
 

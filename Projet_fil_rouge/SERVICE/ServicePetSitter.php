@@ -14,6 +14,7 @@ Class ServicePetsitter extends BDDConnexionDAO{
                 $petsitter-> setDistancePetSitter($data['CodePostalPetSitter']);
                 $petsitter-> setTypeGardePetSitter($data['Garde']);
                 $petsitter-> setTypeDomicilePetSitter($data['Domicile']);
+                $petsitter-> setPresentationTelephone($data['afftel']);
                 $petsitter -> setDowloadPhotoPetSitter($data['DowloadPhotoPetSitter']);
                 $petsitter-> setDescriptionPetSitter($data['InfoCompPetSitter']);
                 $petsitter-> setIdEspece($data['EspecePetSitter']);
@@ -30,6 +31,7 @@ Class ServicePetsitter extends BDDConnexionDAO{
                 $petsitter-> setDistancePetSitter($data['CodePostalPetSitter']);
                 $petsitter-> setTypeGardePetSitter($data['Garde']);
                 $petsitter-> setTypeDomicilePetSitter($data['Domicile']);
+                $petsitter-> setPresentationTelephone($data['afftel']);
                 $petsitter -> setDowloadPhotoPetSitter($data['DowloadPhotoPetSitter']);
                 $petsitter-> setDescriptionPetSitter($data['InfoCompPetSitter']);
                 $petsitter-> setIdEspece($data['EspecePetSitter']);

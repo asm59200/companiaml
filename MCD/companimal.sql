@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 11 mars 2020 à 19:05
+-- Généré le : jeu. 12 mars 2020 à 17:17
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.2
 
@@ -32,11 +32,12 @@ CREATE TABLE `animal` (
   `id_adoption` int(11) NOT NULL,
   `nom_animal` varchar(30) NOT NULL,
   `naissance_animal` date NOT NULL,
-  `sexe_animal` tinyint(1) NOT NULL,
+  `sexe_animal` varchar(10) NOT NULL,
   `photo_animal` blob DEFAULT NULL,
   `description_animal` varchar(500) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
   `nom_espece` varchar(50) NOT NULL,
+  `nom_race` varchar(30) NOT NULL,
   `nom_refuge` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -70,26 +71,6 @@ CREATE TABLE `commentaire` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `compte_utilisateur`
---
-
-CREATE TABLE `compte_utilisateur` (
-  `email` varchar(50) NOT NULL,
-  `mot_de_passe` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `compte_utilisateur`
---
-
-INSERT INTO `compte_utilisateur` (`email`, `mot_de_passe`) VALUES
-('asm59200@gmail.com', '1234'),
-('leclercqjerome59200@gmail.com ', '1234'),
-('maxim590@hotmail.fr', '1234');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `espece`
 --
 
@@ -116,7 +97,7 @@ INSERT INTO `espece` (`nom_espece`) VALUES
 CREATE TABLE `perdu_trouve` (
   `id_perdu_trouve` int(11) NOT NULL,
   `titre_perdu_trouve` varchar(30) NOT NULL,
-  `type_perdu_trouve` tinyint(1) NOT NULL,
+  `type_perdu_trouve` varchar(20) NOT NULL,
   `lieu_perdu_trouve` varchar(30) NOT NULL,
   `date_perdu_trouve` date NOT NULL,
   `code_postale_perdu_trouve` int(11) NOT NULL,
@@ -135,12 +116,13 @@ CREATE TABLE `pet_sitter` (
   `id_pet_sitter` int(11) NOT NULL,
   `titre_pet_sitter` varchar(100) NOT NULL,
   `distance_pet_sitter` int(11) NOT NULL,
-  `type_garde_pet_sitter` tinyint(1) NOT NULL,
-  `type_domicile_pet_sitter` tinyint(1) NOT NULL,
-  `presentation_telephone` tinyint(1) NOT NULL,
+  `type_garde_pet_sitter` varchar(30) NOT NULL,
+  `type_domicile_pet_sitter` varchar(30) NOT NULL,
+  `presentation_telephone` varchar(3) NOT NULL,
   `description_pet_sitter` varchar(500) NOT NULL,
   `id_utilisateur` int(11) NOT NULL,
-  `nom_espece` varchar(50) NOT NULL
+  `nom_espece` varchar(50) NOT NULL,
+  `photo_pet_sitter` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -250,6 +232,7 @@ CREATE TABLE `utilisateur` (
   `ville_utilisateur` varchar(30) DEFAULT NULL,
   `telephone_utilisateur` int(11) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
+  `mot_de_passe` varchar(40) NOT NULL,
   `nom_role` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -257,10 +240,10 @@ CREATE TABLE `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `adresse_utilisateur`, `code_postal_utilisateur`, `ville_utilisateur`, `telephone_utilisateur`, `email`, `nom_role`) VALUES
-(1, 'Goulin', 'Matthieu', NULL, NULL, NULL, NULL, 'asm59200@gmail.com', 'SuperAdmin'),
-(2, 'Leclercq', 'Jerome', NULL, NULL, NULL, NULL, 'leclercqjerome59200@gmail.com ', 'SuperAdmin'),
-(3, 'Lespagnol', 'Maxime', NULL, NULL, NULL, NULL, 'maxim590@hotmail.fr', 'SuperAdmin');
+INSERT INTO `utilisateur` (`id_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `adresse_utilisateur`, `code_postal_utilisateur`, `ville_utilisateur`, `telephone_utilisateur`, `email`, `mot_de_passe`, `nom_role`) VALUES
+(1, 'Goulin', 'Matthieu', NULL, NULL, NULL, NULL, 'asm59200@gmail.com', '1234', 'SuperAdmin'),
+(2, 'Leclercq', 'Jerome', NULL, NULL, NULL, NULL, 'leclercqjerome59200@gmail.com ', '1234', 'SuperAdmin'),
+(3, 'Lespagnol', 'Maxime', NULL, NULL, NULL, NULL, 'maxim590@hotmail.fr', '1234', 'SuperAdmin');
 
 --
 -- Index pour les tables déchargées
@@ -288,12 +271,6 @@ ALTER TABLE `article`
 ALTER TABLE `commentaire`
   ADD PRIMARY KEY (`id_commentaire`),
   ADD KEY `commentaire_topic0_FK` (`id_topic`);
-
---
--- Index pour la table `compte_utilisateur`
---
-ALTER TABLE `compte_utilisateur`
-  ADD PRIMARY KEY (`email`);
 
 --
 -- Index pour la table `espece`
@@ -356,7 +333,6 @@ ALTER TABLE `topic`
 --
 ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`id_utilisateur`),
-  ADD UNIQUE KEY `utilisateur_compte_utilisateur0_AK` (`email`),
   ADD KEY `utilisateur_role1_FK` (`nom_role`);
 
 --
@@ -469,11 +445,7 @@ ALTER TABLE `topic`
   ADD CONSTRAINT `topic_utilisateur0_FK` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id_utilisateur`);
 
 --
--- Contraintes pour la table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  ADD CONSTRAINT `utilisateur_compte_utilisateur0_FK` FOREIGN KEY (`email`) REFERENCES `compte_utilisateur` (`email`),
-  ADD CONSTRAINT `utilisateur_role1_FK` FOREIGN KEY (`nom_role`) REFERENCES `role` (`nom_role`);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

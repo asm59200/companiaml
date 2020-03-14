@@ -13,6 +13,61 @@
 
     </head>
     <body>
+
+    <?php
+      include_once('../DAO/UtilisateurDAO.php');
+      include_once('../SERVICE/ServiceUtilisateur.php');
+      session_start();
+      var_dump($_SESSION);
+      $userdao= new UtilisateurDAO;
+        $ServiceUtilisateur = new ServiceUtilisateur;
+      if(isset($_POST["inscrire"]) &&  isset($_POST["email"]) && isset($_POST["motDePasse"])){
+        
+           $answer=$ServiceUtilisateur -> ajoutUser($_POST);
+           if($answer=="false"){
+            header("location:FormInscription.php?action=existe"); 
+           }elseif($answer=="false2"){
+            header("location:FormInscription.php?action=mdpdif");
+           }
+      } 
+
+      if(isset($_POST["login"])){ 
+        $answer = $ServiceUtilisateur -> connexion($_POST);
+        if($answer=="true"){
+            header("location:accueil.php");
+        } else
+        header("location:accueil.php?action=erreur"); 
+      } 
+      
+      if(isset($_POST["logout"])){   
+        session_destroy();
+        header("location:accueil.php"); 
+      }
+
+     
+      if(isset($_GET["action"]) && ($_GET["action"]=="erreur")){
+          echo "LOGIN FAILED Vérifiez votre identifiant ou votre Mot de passe";
+
+      }
+
+      if(isset($_GET["action"]) && ($_GET["action"]=="deconnection")){
+        session_destroy();
+            header("location:accueil.php"); 
+
+      }
+
+      if(isset($_POST["edit"])){
+        $ServiceUtilisateur -> modifUser($_POST);
+    }
+
+      /*var_dump($_SESSION);*/
+                      
+
+
+
+
+
+?>
        <!-- header       -->
       <!-- Titre et logo-->
       <div class="container-fluid  ">
@@ -50,7 +105,7 @@
                   <a class="nav-link" href="">Animaux perdus et trouvés</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">Pet'Sitter</a>
+                  <a class="nav-link" href="accueil.php?action=petsitter">Pet'Sitter</a>
                 </li>
                 <li class="nav-item dropdown" > 
                   <a class="nav-link dropdown-toggle " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Forum</a>
@@ -63,19 +118,20 @@
                 </li>
               </ul>
               <ul class="offset-xl-1 navbar-nav">
-                <li class="nav-item dropdown" > 
+              <?php
+              if(!isset($_SESSION['email'])){
+                        echo'
+                <li class="nav-item dropdown " > 
                   <a class="nav-link dropdown-toggle  " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Se Connecter</a>
                     <div class="bg-nv p-3 text-center dropdown-menu">
                       <form  method="post" action="accueil.php">            
                         <label for="idpersonne">Identifiant</label>
-                        <input id="idpersonne" size="30" maxlength="15" type="email" 
-                              name="ident" class="form-control "/>
-                        <label for="idpersonne " class=" mt-2">Mot de passe</label>
-                        <input id="idpersonne" size="30" maxlength="15" type="password" 
-                                name="ident" class="form-control"/> 
-                                
-                        <button class="btn mt-2  " type="submit">Connecter</button>
-                          
+                        <input id="idpersonne" size="30" maxlength="50" type="email" 
+                              name="email" class="form-control "/>
+                        <label for="passpersonne " class=" mt-2">Mot de passe</label>
+                        <input id="passpersonne" size="30" maxlength="15" type="password" 
+                                name="motDePasse" class="form-control"/> 
+                        <button class="btn mt-2  " type="submit" name="login">Connecter</button>
                       </form>
                       <form method="post" action="accueil.php" >
                         <label class="mt-3 ptpol" for="idpersonne">Mot de passe oublié ?</label>
@@ -85,10 +141,21 @@
                       </form>                           
                     </div>
                 </li>
-                <li class="nav-item " > 
-                  <a class="nav-link d  " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">S'inscrire</a>
-                    
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="FormInscription.php?action=ajouter">S\'inscrire</a>
                 </li>
+                ';}
+                if(isset($_SESSION['email'])){
+                  echo
+                
+                '<li class="nav-item">
+                  <a class="nav-link" href="accueil.php?action=deconnection">Déconnection</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="FormInscription.php?action=monCompte">Mon compte</a>
+                </li>';}
+                ?>
               </ul>
             </div>
           </nav>
@@ -137,6 +204,10 @@
         </div>
         
         <!-- fin header       -->
+        <?php if(isset($_GET["action"])&& $_GET['action']  =="petsitter"){
+          include('PetSitter.php');
+        }else{
+          ?>
       <!-- debut page       -->
       
       <div class="container text-center">
@@ -226,7 +297,7 @@
               </nav>
             </div>
           </div>
-          
+        
            <!-- aside       -->
           <div class="col-lg-3 aside-adopt ml-lg-3 mt-4">
             <div class="row bloc-aside justify-content-center ">
@@ -248,7 +319,7 @@
         </div>
     </div>
 
-
+    <?php } ?>
 <!-- footer     -->
       <footer class="  font-small mt-3 foot   " >
         

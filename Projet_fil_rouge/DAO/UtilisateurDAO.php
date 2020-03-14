@@ -1,55 +1,98 @@
 <?php
 
-include_once('../DAO/BDDConnexionDAO.php');
+include_once('BDDConnexionDAO.php');
 include_once('../MODEL/Utilisateur.php');
-include_once('../MODEL/Role.php');
 
-class UtilisateurDAO extends BDDConnexionDAO{
-   
-    public function selectNomColUser(){
-        
-        $db=$this->connectionBdd();
-        $nc = mysqli_query($db, "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'utilisateur'");
-        $tabnc = mysqli_fetch_all($nc,MYSQLI_ASSOC);
-        return $tabnc;
 
-    }
 
-    public function selectAllUser(){
+class UtilisateurDAO extends BDDConnexionDAO {
+    
+    
 
-        $db=$this->connectionBdd();
-        $rs=mysqli_query($db, 'select * from utilisateur');
-        $data=mysqli_fetch_all($rs,MYSQLI_BOTH);
+    public function selectAll(){
+
+        $mysqli=$this->connectionBdd();
+        $stmt = $mysqli -> prepare("select * from utilisateur as a inner join compte_utilisateur as b on a.email = b.email");
+        $stmt->execute();
+        $rs = $stmt -> get_result();
+        $data = $rs -> fetch_all(MYSQLI_BOTH);
         return $data;
 
     }
 
-    public function selectUserWhereIDEgale($comparUser){
+    public function selectWhereEgale($compar){
 
-        $db=$this->connectionBdd();
-        $rs=mysqli_query($db, "select * from utilisateur where idUtilisateur='$comparUser'");
-        $data=mysqli_fetch_all($rs,MYSQLI_BOTH);
+        $mysqli=$this->connectionBdd();
+        $str=$compar;
+        $stmt = $mysqli -> prepare("select * from utilisateur  where email=?");
+        $stmt -> bind_param("s",$str);
+        $stmt->execute();
+        $rs = $stmt -> get_result();
+        $data = $rs -> fetch_all(MYSQLI_BOTH);
         return $data;
 
     }
 
-    function inscrire($utilisateur,$role,$compteUtilisateur){
+    function add($Ajout){
         
-        $db=$this->connectionBdd();
+        $mysqli=$this->connectionBdd();
+        
+        $nomUser        =$Ajout -> getNomUtilisateur();
+        $prenomUser     =$Ajout -> getPrenomUtilisateur(); 
+        $adresseUser    =$Ajout -> getAdresseUtilisateur(); 
+        $codePostalUser =$Ajout -> getCodePostalUtilisateur(); 
+        $villeUser      =$Ajout -> getVilleUtilisateur(); 
+        $telUser        =$Ajout -> getTelephoneUtilisateur(); 
+        $email          =$Ajout -> getEmail(); 
+        $motDePasse     =$Ajout -> getMotDePasse(); 
+        
+        $stmt = $mysqli -> prepare("INSERT into utilisateur (nom_utilisateur,prenom_utilisateur,adresse_utilisateur,code_postal_utilisateur,ville_utilisateur,telephone_utilisateur,email,mot_de_passe,nom_role) 
+                                    values(?,?,?,?,?,?,?,?,'Membre');") ;/*echo $mysqli -> error;die ;*/
+        $stmt -> bind_param("sssissss",$nomUser,$prenomUser,$adresseUser,$codePostalUser,$villeUser,$telUser,$email,$motDePasse); 
 
-        $idUtilisateur          =$utilisateur -> getIdUtilisateur();
-        $nomUtilisateur         =$utilisateur -> getNomUtilisateur();
-        $prenomUtilisateur      =$utilisateur -> getPrenomUtilisateur();
-        $adresseUtilisateur     =$utilisateur -> getAdresseUtilisateur();
-        $codePostalUtilisateur  =$utilisateur -> getCodePostalUtilisateur();
-        $villeUtilisateur       =$utilisateur -> getVilleUtilisateur();
-        $telephoneUtilisateur   =$utilisateur -> getTelephoneUtilisateur();
-        $email                  =$utilisateur -> getEmail();
-        $idRole                 =$utilisateur -> getIdRole();
-        
-        $query="insert into utilisateur (id_user,username,password,role) values(NULL,'$username1','$password1','$role1')" ;     
-        $inscript      =mysqli_query($db,$query ); 
+        $stmt->execute();
+       
+       
     
     }
+    
+    function edit($Edit){
+
+        $mysqli=$this->connectionBdd();
+        
+        $iduser         =$Edit -> getIdUtilisateur();
+        $nomUser        =$Edit -> getNomUtilisateur();
+        $prenomUser     =$Edit -> getPrenomUtilisateur(); 
+        $adresseUser    =$Edit -> getAdresseUtilisateur(); 
+        $codePostalUser =$Edit -> getCodePostalUtilisateur(); 
+        $villeUser      =$Edit -> getVilleUtilisateur(); 
+        $telUser        =$Edit -> getTelephoneUtilisateur(); 
+        $email          =$Edit -> getEmail(); 
+        $motDePasse     =$Edit -> getMotDePasse(); 
+
+        $stmt = $mysqli -> prepare("update utilisateur set nom_utilisateur=?, prenom_utilisateur=?, adresse_utilisateur=? , code_postal_utilisateur=?, ville_utilisateur=?, telephone_utilisateur=?, email=?, mot_de_passe=? where id_utilisateur=?") ;/*echo $mysqli -> error;die ;*/
+        $stmt -> bind_param("sssissssi",$nomUser,$prenomUser,$adresseUser,$codePostalUser,$villeUser,$telUser,$email,$motDePasse,$iduser);    
+        $stmt->execute(); 
+        
+
+    }
+
+    /*function del($del){
+        
+        $mysqli=$this->connectionBdd();
+        $stmt = $mysqli -> prepare("delete from utilisateur where username=?") ;/*echo $mysqli -> error;die ;*/
+        /*$stmt -> bind_param("s",$del);    
+        $stmt->execute();
+    
+    }
+
+    public function userDisconnect(){
+        
+        session_start(); 
+        session_destroy();
+
+        
+    }*/
+    
 
 }

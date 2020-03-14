@@ -1,23 +1,25 @@
 <?php
-include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\SERVICE\ServicePetSitter.php');
-include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\MODEL\PetSitter.php');
-include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\DAO\BDDConnexionDAO.php');
+include_once ('../SERVICE\ServicePetSitter.php');
+include_once ('../MODEL\PetSitter.php');
+include_once ('../DAO\BDDConnexionDAO.php');
 
 Class PetSitterDAO{
 
     Public function ajoutAnnoncePetSitter($data){
-        
-            $mysqli = new mysqli('localhost',"root","","companimal");           
+            session_start();
+            $mysqli = new mysqli('localhost',"root","","companimal");
+            $iduser = $_SESSION['iduser'];           
             $titrePetSitter = $data -> getTitrePetSitter();
             $distance = $data -> getDistancePetSitter();
             $garde = $data -> getTypeGardePetSitter();
             $domicile = $data -> getTypeDomicilePetSitter();
+            $afftel = $data -> getPresentationTelephone();
             $photo = $data -> getDowloadPhotoPetSitter();
             $description = $data -> getDescriptionPetSitter();
             $idEspece = $data -> getIdEspece();
             $stmt = $mysqli->prepare('INSERT INTO pet_sitter(titre_pet_sitter,distance_pet_sitter,type_garde_pet_sitter,type_domicile_pet_sitter,presentation_telephone,description_pet_sitter,id_utilisateur,photo_pet_sitter,nom_espece) 
-            VALUES (?, ?, ?, ?,0600000000, ?, 3, ?, ?)');
-            $stmt -> bind_param("sisssss",$titrePetSitter,$distance,$garde,$domicile,$description,$photo,$idEspece);
+            VALUES (?, ?, ?, ?,?, ?, ?, ?, ?)');
+            $stmt -> bind_param("sissssiss",$titrePetSitter,$distance,$garde,$domicile,$afftel,$description,$iduser,$photo,$idEspece);
             $stmt -> execute();
             
         }
@@ -30,6 +32,7 @@ Class PetSitterDAO{
             $distance = $data -> getDistancePetSitter();
             $garde = $data -> getTypeGardePetSitter();
             $domicile = $data -> getTypeDomicilePetSitter();
+            $afftel = $data -> getPresentationTelephone();
             $photo = $data -> getDowloadPhotoPetSitter();
             $description = $data -> getDescriptionPetSitter();
             $idEspece = $data -> getIdEspece();

@@ -12,8 +12,19 @@
 
     </head>
     <body>
-      <!-- header       -->
-     
+    <?php 
+      session_start(); 
+      include_once("../SERVICE/ServiceUtilisateur.php");
+
+        if(isset($_SESSION['email'])){
+        include_once("../DAO/UtilisateurDAO.php");
+        $email = $_SESSION['email'];
+        $UserDAO = new UtilisateurDAO();
+        $data = $UserDAO -> selectWhereEgale($email);
+        }
+    ?> 
+    <!-- header       -->
+   
       <!-- fin header       -->
 
 
@@ -29,20 +40,30 @@
         <div class="row">
           <div class="col-lg-8 offset-lg-2">
 
-        <form class="was-validated">     
+        <form class="was-validated" action="accueil.php" method="post">     
             <div class="form-group row">
+            <input type="hidden" class="form-control is-valid" id="inputid" name="idUser" value="
+                  <?php if(isset($_GET["action"]) && ($_GET["action"]=="monCompte")){
+                    echo $data[0]['id_utilisateur'];
+                  }?>" required>
               <div class="col-lg-3"></div>
                 <label for="inputname" class="col-lg-2 col-form-label">Nom</label>
                 <div class="col-lg-5 col-7">
-                  <input type="text" class="form-control is-valid" id="inputname" required>
+                  <input type="text" class="form-control is-valid" id="inputname" name="nom" value="<?php
+                   if(isset($_GET["action"]) && ($_GET["action"]=="monCompte")){echo $data[0]['nom_utilisateur'];
+                  }?>" required>
                 </div>
             </div>
+
 
             <div class="form-group row">
               <div class="col-lg-3"></div>
                 <label for="inputsurname" class="col-lg-2 col-form-label">Prénom</label>
                 <div class="col-lg-5 col-7">
-                  <input type="text" class="form-control is-valid" id="inputsurname" required>
+                  <input type="text" class="form-control is-valid" id="inputsurname" name="prenom" value="<?php
+                   if(isset($_GET["action"]) && ($_GET["action"]=="monCompte")){
+                    echo $data[0]['prenom_utilisateur'];
+                  }?>" required>
                 </div>
             </div>
 
@@ -50,7 +71,10 @@
               <div class="col-lg-3"></div>
                 <label for="inputadresse" class="col-lg-2 col-form-label">Adresse</label>
                 <div class="col-lg-6 col-8">
-                  <input type="text" class="form-control is-valid" id="inputadresse" required>
+                  <input type="text" class="form-control is-valid" id="inputadresse" name="adresse" value="<?php
+                   if(isset($_GET["action"]) && ($_GET["action"]=="monCompte")){
+                    echo $data[0]['adresse_utilisateur'];
+                  }?>" required>
                 </div>
             </div>
 
@@ -58,7 +82,10 @@
               <div class="col-lg-3"></div>
                 <label for="inputpostcode" class="col-lg-2 col-form-label">Code postal</label>
                 <div class="col-lg-4 col-6">
-                  <input type="text" class="form-control is-valid" id="inputpostcode" required>
+                  <input type="text" class="form-control is-valid" id="inputpostcode" name="codePostal" value="<?php
+                   if(isset($_GET["action"]) && ($_GET["action"]=="monCompte")){
+                    echo $data[0]['code_postal_utilisateur'];
+                  }?>" required>
                 </div>
             </div>
 
@@ -66,7 +93,10 @@
                   <div class="col-lg-3"></div>
                 <label for="inputtown" class="col-lg-2 col-form-label">Ville</label>
                 <div class="col-lg-6 col-8">
-                  <input type="text" class="form-control is-valid" id="inputtown" required>
+                  <input type="text" class="form-control is-valid" id="inputtown" name="ville" value="<?php
+                  if(isset($_GET["action"]) && ($_GET["action"]=="monCompte")){
+                    echo $data[0]['ville_utilisateur'];
+                  }?>" required>
                 </div>
             </div>
 
@@ -74,7 +104,10 @@
               <div class="col-lg-3"></div>
                 <label for="inputtel" class="col-lg-2 col-form-label">Téléphone</label>
                 <div class="col-lg-4 col-6">
-                  <input type="tel" class="form-control is-valid" id="inputtel" required>
+                  <input type="text" class="form-control is-valid" id="inputtel" name="tel" value="<?php
+                   if(isset($_GET["action"]) && ($_GET["action"]=="monCompte")){
+                    echo $data[0]['telephone_utilisateur'];
+                  }?>" required>
                 </div>
             </div>
 
@@ -82,7 +115,10 @@
               <div class="col-lg-3"></div>
                 <label for="inputEmail3" class="col-lg-2 col-form-label">Email</label>
                 <div class="col-lg-5 col-7">
-                  <input type="email" class="form-control is-valid" id="inputEmail3" required>
+                  <input type="email" class="form-control is-valid" id="inputEmail3" name="email" value="<?php
+                   if(isset($_GET["action"]) && ($_GET["action"]=="monCompte")){
+                    echo $data[0]['email'];
+                  }?>" required>
                 </div>
             </div>
 
@@ -90,7 +126,7 @@
               <div class="col-lg-3"></div>
                 <label for="inputpassword" class="col-lg-2 col-form-label">Mot de passe</label>
                 <div class="col-lg-5 col-6">
-                  <input type="password" class="form-control is-valid" id="inputpassword" required>
+                  <input type="password" class="form-control is-valid" id="inputpassword" name="motDePasse" value="" required>
                 </div>
             </div>
 
@@ -98,18 +134,29 @@
               <div class="col-lg-3"></div>
                 <label for="inputpassword" class="col-lg-2 col-form-label">Confirmer MdP</label>
                 <div class="col-lg-5 col-7">
-                  <input type="password" class="form-control is-valid" id="inputpassword" required>
+                  <input type="password" class="form-control is-valid" id="inputpassword" name="motDePasse2" value="" required>
                 </div>
             </div>
 
             <div class="row">
               <div class="col-lg-5"></div>
-              <div class="col">
-                <button class="btn " type="submit">Valider</button>
-              </div>
+              <?php if(!isset($_SESSION["email"])){
+                echo
+              '<div class="col">
+                <button class="btn " type="submit" name="inscrire">Valider</button>
+              </div>';}?>
+              <?php if(isset($_SESSION["email"])){
+                echo
+              '<div class="col">
+                <button class="btn " type="submit" name="edit">Modifier</button>
+              </div>';}?>
+              
             </div>
-        </form>    
-      </div>
+
+        </form>
+        <div>
+      </div>    
+    </div>
 
       <!-- footer       -->
      

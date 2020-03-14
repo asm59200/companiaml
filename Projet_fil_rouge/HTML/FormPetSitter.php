@@ -73,6 +73,21 @@
                         <!-- Type de domicile -->
                         <div class="form-group row">
                             <div class="col-lg-3"></div>
+                            <label for="DomicilePetSitter" class="col-lg-3 col-form-label">Afficher votre numéro?</label>
+                            <div class="col-lg-4 col-6">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="afftel" id="inlineRadio1" value="oui">
+                                    <label class="form-check-label" for="Maison">oui</label>
+                                  </div>
+
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="afftel" id="inlineRadio2" value="non">
+                                    <label class="form-check-label" for="Appartement">non</label>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-3"></div>
                             <label for="DomicilePetSitter" class="col-lg-3 col-form-label">Chez Moi</label>
                             <div class="col-lg-4 col-6">
                                 <div class="form-check form-check-inline">

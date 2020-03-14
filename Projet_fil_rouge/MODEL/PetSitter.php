@@ -1,6 +1,6 @@
 <?php
-include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\DAO\PetSitterDAO.php');
-include_once ('C:\xampp\htdocs\Exercices\Projet_fil_rouge\SERVICE\ServicePetSitter.php');
+include_once ('../DAO/PetSitterDAO.php');
+include_once ('../SERVICE/ServicePetSitter.php');
 
 
 class PetSitter{
